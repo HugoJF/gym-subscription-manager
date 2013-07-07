@@ -8,3 +8,4 @@
 	 */
 	$lang['login_email']    = 'Email';
 	$lang['login_password'] = 'Senha';
+	$lang['login_enter']    = 'Entrar';
