@@ -233,17 +233,17 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="brand" href="<?php echo base_url(); ?>">GSM</a>
+				<a class="brand" href="<?php echo base_url(); ?>"><?php echo $this->lang->line('header_title'); ?></a>
 				<!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<li class="active"><a href="<?php echo base_url(); ?>">Home</a></li>
-						<li><a href="<?php echo base_url('users/add'); ?>">Registrar novo usuario</a></li>
-						<li><a href="<?php echo base_url('users/deactivated'); ?>">Usuarios desativados</a></li>
+						<li class="active"><a href="<?php echo base_url(); ?>"><?php echo $this->lang->line('header_home'); ?></a></li>
+						<li><a href="<?php echo base_url('users/add'); ?>"><?php echo $this->lang->line('header_register_user'); ?></a></li>
+						<li><a href="<?php echo base_url('users/deactivated'); ?>"><?php echo $this->lang->line('header_deactivated_users'); ?></a></li>
 						<!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
 					</ul>
 						<form method="POST"action="<?php echo base_url('users/detail')?>" style="margin-top: 5px"class="navbar-form pull-right">
-							<input type="text" name="user" data-provide="typeahead" data-items="5" data-source="<?php echo '[&quot;' . implode('&quot;, &quot;', $users_name) . '&quot;]'; ?>" placeholder="Username" autocomplete="off">
+							<input type="text" name="user" data-provide="typeahead" data-items="5" data-source="<?php echo '[&quot;' . implode('&quot;, &quot;', $users_name) . '&quot;]'; ?>" placeholder="<?php echo $this->lang->line('user_name'); ?>" autocomplete="off">
 						</form>
 				</div>
 				<!--/.nav-collapse -->

@@ -81,7 +81,7 @@
 		|
 		*/
 
-		$autoload['config'] = array();
+		$autoload['config'] = array('gsm');
 
 
 		/*

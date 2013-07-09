@@ -8,7 +8,7 @@
 	<meta name="author" content="">
 
 	<!-- Le styles -->
-	<link href="<?php echo base_url('assets/css/bootstrap.css') ?>" rel="stylesheet">
+	<link href="<?php echo base_url ('assets/css/bootstrap.css') ?>" rel="stylesheet">
 	<style type="text/css">
 		body {
 			padding-top: 40px;
@@ -44,7 +44,7 @@
 		}
 
 	</style>
-	<link href="<?php echo base_url('/assets/css/bootstrap-responsive.css') ?>" rel="stylesheet">
+	<link href="<?php echo base_url ('/assets/css/bootstrap-responsive.css') ?>" rel="stylesheet">
 
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -63,24 +63,24 @@
 
 <div class="container">
 
-	<form method="post" action="<?php echo base_url('login'); ?>" class="form-signin">
-		<h2 class="form-signin-heading">Please sign in</h2>
+	<form method="post" action="<?php echo base_url ('login'); ?>" class="form-signin">
+		<h2 class="form-signin-heading"><?php echo $this->lang->line ('login'); ?></h2>
 
-		<p class="text-warning"><?php echo $this->session->flashdata('message'); ?></p>
+		<p class="text-warning"><?php echo $this->session->flashdata ('message'); ?></p>
 
-		<p class="text-error"><?php echo $this->session->flashdata('error'); ?></p>
+		<p class="text-error"><?php echo $this->session->flashdata ('error'); ?></p>
 
-		<?php if (form_error('email') !== '')
-			echo form_error('email'); ?>
+		<?php if (form_error ('email') !== '')
+			echo form_error ('email'); ?>
 		<input name="email" type="text" class="input-block-level"
-			   placeholder="<?php echo $this->lang->line('login_email'); ?>">
+			   placeholder="<?php echo $this->lang->line ('login_email'); ?>">
 
-		<?php if (form_error('password') !== '')
-			echo form_error('password'); ?>
+		<?php if (form_error ('password') !== '')
+			echo form_error ('password'); ?>
 		<input name="password" type="password" class="input-block-level"
-			   placeholder="<?php echo $this->lang->line('login_password') ?>">
+			   placeholder="<?php echo $this->lang->line ('login_password') ?>">
 
-		<button class="btn btn-large btn-primary" type="submit"><? echo $this->lang->line('login_enter'); ?></button>
+		<button class="btn btn-large btn-primary" type="submit"><? echo $this->lang->line ('login_enter'); ?></button>
 	</form>
 
 </div>
@@ -89,8 +89,8 @@
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="<?php echo base_url('assets/js/jquery.js') ?>"></script>
-<script src="<?php echo base_url('assets/js/bootstrap.min.js') ?>"></script>
+<script src="<?php echo base_url ('assets/js/jquery.js'); ?>"></script>
+<script src="<?php echo base_url ('assets/js/bootstrap.min.js'); ?>"></script>
 
 </body>
 </html>

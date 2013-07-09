@@ -13,7 +13,11 @@
 				redirect ('dashboard');
 			}
 			if ($user_id == - 1) {
-				$user_id = $this->gsm_model->get_id_from_name ($_POST['user'])->first_row ()->id;
+				$query = $this->gsm_model->get_id_from_name ($_POST['user']);
+				if ($query->num_rows == 0) {
+					redirect('dashboard');
+				}
+				$user_id = $query->first_row ()->id;
 			}
 			$user     = $this->gsm_model->get_user ($user_id, TRUE)->first_row ();
 			$payments = $this->gsm_model->get_payments ($user_id);
@@ -36,9 +40,9 @@
 
 				$result = $this->ion_auth->register ($username, $password, $email, $additional_data, $group);
 				if ($result != FALSE) {
-					redirect('users/detail/' . $result);
+					redirect ('users/detail/' . $result);
 				} else {
-					$this->session->set_flashdata('error', $this->ion_auth->errors());
+					$this->session->set_flashdata ('error', $this->ion_auth->errors ());
 					redirect ('dashboard');
 				}
 			} else {
