@@ -33,6 +33,7 @@
 
 	$lang['user']            = 'Usuário';
 	$lang['user_deactivate'] = 'Desativar usuário';
+	$lang['user_activate']   = 'Ativar usuário';
 	$lang['user_options']    = 'Opções do usuário';
 	$lang['user_list_all']   = 'Lista de todos os usuários';
 	$lang['user_id']         = 'ID';

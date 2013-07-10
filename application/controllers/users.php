@@ -59,6 +59,12 @@
 			redirect('dashboard');
 		}
 
+		public function activate($user_id) {
+			$this->db->delete('users_deactivated', array('user_id' => $user_id));
+			$this->session->set_flashdata('message', 'User ' . $user_id . ' reactivated successfully');
+			redirect('dashboard');
+		}
+
 		public function deactivated() {
 			$users = $this->gsm_model->get_deactivated_users();
 			$this->load->view('header_view');

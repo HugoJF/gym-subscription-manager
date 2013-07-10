@@ -123,6 +123,16 @@
 
 		public function get_deactivated_users() {
 			$query = $this->db->query('SELECT users.id, users.first_name, users.last_name, users.email FROM users WHERE users.id IN (SELECT user_id FROM users_deactivated)');
+
 			return $query;
+		}
+
+		public function is_user_deactivated($user_id) {
+			$query = $this->db->query("SELECT IF( COUNT( * ) =1, 1, 0 ) AS r FROM users_deactivated WHERE user_id = $user_id LIMIT 0 , 30");
+			if($query->first_row()->r == '1') {
+				return TRUE;
+			} else {
+				return FALSE;
+			}
 		}
 	}

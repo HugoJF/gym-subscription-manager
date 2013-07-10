@@ -5,7 +5,7 @@
     <ignored path="gym-subscription-manager.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373091193454" ignored="false" />
-    <file path="/gsm_model.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373478857068" ignored="false" />
+    <file path="/gsm_model.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373485292826" ignored="false" />
     <file path="/login_view.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373250308835" ignored="false" />
     <file path="/a.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373431521099" ignored="false" />
     <file path="/gsm_lang.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373251549070" ignored="false" />
@@ -19,8 +19,8 @@
     <file path="/header_view.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373251760489" ignored="false" />
     <file path="/payments_add_view.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373431827129" ignored="false" />
     <file path="/payments_add_conf_view.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373251856198" ignored="false" />
-    <file path="/users.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373483195016" ignored="false" />
-    <file path="/users_detail_view.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373481399166" ignored="false" />
+    <file path="/users.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373485645261" ignored="false" />
+    <file path="/users_detail_view.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373485365413" ignored="false" />
     <file path="/users_add_view.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373247912742" ignored="false" />
     <file path="/gsm.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373441976804" ignored="false" />
     <file path="/index.html" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373482886364" ignored="false" />
@@ -64,8 +64,11 @@
       <file leaf-file-name="users_detail_view.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/users_detail_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="27" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="8" column="162" selection-start="720" selection-end="720" vertical-scroll-proportion="-5.230769">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,16 +76,16 @@
       <file leaf-file-name="gsm_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/gsm_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="494" selection-start="8060" selection-end="8060" vertical-scroll-proportion="0.0">
+            <state line="131" column="43" selection-start="9305" selection-end="9305" vertical-scroll-proportion="-25.76923">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="users.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="42" selection-start="1801" selection-end="1801" vertical-scroll-proportion="-21.038462">
+            <state line="64" column="34" selection-start="2437" selection-end="2437" vertical-scroll-proportion="0.80834275">
               <folding />
             </state>
           </provider>
@@ -91,7 +94,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="82" selection-end="82" vertical-scroll-proportion="-6.5384617">
+            <state line="10" column="0" selection-start="82" selection-end="82" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -118,16 +121,16 @@
       <file leaf-file-name="gsm.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/config/gsm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="78" selection-start="794" selection-end="794" vertical-scroll-proportion="0.0">
+            <state line="16" column="78" selection-start="794" selection-end="794" vertical-scroll-proportion="-10.461538">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gsm_lang.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="gsm_lang.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/language/portuguese/gsm_lang.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="45" selection-start="796" selection-end="796" vertical-scroll-proportion="0.367531">
+            <state line="35" column="33" selection-start="1337" selection-end="1337" vertical-scroll-proportion="-20.384615">
               <folding />
             </state>
           </provider>
@@ -162,11 +165,11 @@
         <option value="$PROJECT_DIR$/application/views/footer_view.php" />
         <option value="$PROJECT_DIR$/application/views/dashboard_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/payments.php" />
+        <option value="$PROJECT_DIR$/application/controllers/index.html" />
         <option value="$PROJECT_DIR$/application/models/gsm_model.php" />
         <option value="$PROJECT_DIR$/application/views/users_detail_view.php" />
-        <option value="$PROJECT_DIR$/application/controllers/index.html" />
-        <option value="$PROJECT_DIR$/application/controllers/users.php" />
         <option value="$PROJECT_DIR$/application/language/portuguese/gsm_lang.php" />
+        <option value="$PROJECT_DIR$/application/controllers/users.php" />
       </list>
     </option>
   </component>
@@ -341,8 +344,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -394,7 +397,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24958494" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1455451" sideWeight="0.6709265" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14720531" sideWeight="0.6709265" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -497,16 +500,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/payments_add_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="151" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/gsm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="78" selection-start="794" selection-end="794" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="16" column="151" selection-start="829" selection-end="829" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/header_view.php">
@@ -537,37 +531,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="82" selection-end="82" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/gsm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="78" selection-start="794" selection-end="794" vertical-scroll-proportion="-10.461538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/gsm_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="494" selection-start="8060" selection-end="8060" vertical-scroll-proportion="0.0">
+        <state line="131" column="43" selection-start="9305" selection-end="9305" vertical-scroll-proportion="-25.76923">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/users_detail_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="27" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="8" column="162" selection-start="720" selection-end="720" vertical-scroll-proportion="-5.230769">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/index.html">
+    <entry file="file://$PROJECT_DIR$/application/language/portuguese/gsm_lang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="82" selection-end="82" vertical-scroll-proportion="-6.5384617">
+        <state line="35" column="33" selection-start="1337" selection-end="1337" vertical-scroll-proportion="-20.384615">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="42" selection-start="1801" selection-end="1801" vertical-scroll-proportion="-21.038462">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/language/portuguese/gsm_lang.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="45" selection-start="796" selection-end="796" vertical-scroll-proportion="0.367531">
+        <state line="64" column="34" selection-start="2437" selection-end="2437" vertical-scroll-proportion="0.80834275">
           <folding />
         </state>
       </provider>
