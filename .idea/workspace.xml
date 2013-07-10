@@ -23,7 +23,7 @@
     <file path="/users_detail_view.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373481399166" ignored="false" />
     <file path="/users_add_view.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373247912742" ignored="false" />
     <file path="/gsm.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373441976804" ignored="false" />
-    <file path="/index.html" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373482193067" ignored="false" />
+    <file path="/index.html" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373482526444" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +91,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="37" selection-start="97" selection-end="97" vertical-scroll-proportion="0.11499436">
+            <state line="6" column="17" selection-start="77" selection-end="77" vertical-scroll-proportion="0.11499436">
               <folding />
             </state>
           </provider>
@@ -567,7 +567,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="37" selection-start="97" selection-end="97" vertical-scroll-proportion="0.11499436">
+        <state line="6" column="17" selection-start="77" selection-end="77" vertical-scroll-proportion="0.11499436">
           <folding />
         </state>
       </provider>
