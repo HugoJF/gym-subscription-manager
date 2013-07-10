@@ -19,7 +19,7 @@
     <file path="/header_view.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373251760489" ignored="false" />
     <file path="/payments_add_view.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373431827129" ignored="false" />
     <file path="/payments_add_conf_view.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373251856198" ignored="false" />
-    <file path="/users.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373481429173" ignored="false" />
+    <file path="/users.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373483195016" ignored="false" />
     <file path="/users_detail_view.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373481399166" ignored="false" />
     <file path="/users_add_view.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373247912742" ignored="false" />
     <file path="/gsm.php" changelist="9699e343-018e-42f0-8d25-e02489982240" time="1373441976804" ignored="false" />
@@ -82,16 +82,16 @@
       <file leaf-file-name="users.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="47" selection-start="910" selection-end="910" vertical-scroll-proportion="-15.038462">
+            <state line="45" column="42" selection-start="1801" selection-end="1801" vertical-scroll-proportion="-21.038462">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="24" selection-start="84" selection-end="84" vertical-scroll-proportion="0.11499436">
+            <state line="10" column="0" selection-start="82" selection-end="82" vertical-scroll-proportion="-6.5384617">
               <folding />
             </state>
           </provider>
@@ -124,10 +124,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gsm_lang.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="gsm_lang.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/language/portuguese/gsm_lang.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="48" selection-start="778" selection-end="778" vertical-scroll-proportion="0.0">
+            <state line="22" column="45" selection-start="796" selection-end="796" vertical-scroll-proportion="0.367531">
               <folding />
             </state>
           </provider>
@@ -158,15 +158,15 @@
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
         <option value="$PROJECT_DIR$/application/views/payments_add_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/dashboard.php" />
-        <option value="$PROJECT_DIR$/application/language/portuguese/gsm_lang.php" />
         <option value="$PROJECT_DIR$/application/config/gsm.php" />
         <option value="$PROJECT_DIR$/application/views/footer_view.php" />
         <option value="$PROJECT_DIR$/application/views/dashboard_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/payments.php" />
         <option value="$PROJECT_DIR$/application/models/gsm_model.php" />
         <option value="$PROJECT_DIR$/application/views/users_detail_view.php" />
-        <option value="$PROJECT_DIR$/application/controllers/users.php" />
         <option value="$PROJECT_DIR$/application/controllers/index.html" />
+        <option value="$PROJECT_DIR$/application/controllers/users.php" />
+        <option value="$PROJECT_DIR$/application/language/portuguese/gsm_lang.php" />
       </list>
     </option>
   </component>
@@ -551,23 +551,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/language/portuguese/gsm_lang.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="48" selection-start="778" selection-end="778" vertical-scroll-proportion="0.0">
+        <state line="10" column="0" selection-start="82" selection-end="82" vertical-scroll-proportion="-6.5384617">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="47" selection-start="910" selection-end="910" vertical-scroll-proportion="-15.038462">
+        <state line="45" column="42" selection-start="1801" selection-end="1801" vertical-scroll-proportion="-21.038462">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/index.html">
+    <entry file="file://$PROJECT_DIR$/application/language/portuguese/gsm_lang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="24" selection-start="84" selection-end="84" vertical-scroll-proportion="0.11499436">
+        <state line="22" column="45" selection-start="796" selection-end="796" vertical-scroll-proportion="0.367531">
           <folding />
         </state>
       </provider>
