@@ -13,9 +13,9 @@
 				<div class="control-group">
 					<label class="control-label"><?php echo $this->lang->line('payment_valid_time'); ?></label>
 					<div class="controls">
-						<label class="radio"><input type="radio" name="payment_time" value="604800">7 dias</label>
-						<label class="radio"><input type="radio" name="payment_time" value="1209600">14 dias</label>
-						<label class="radio"><input type="radio" name="payment_time" value="2592000">30 dias</label>
+						<?php foreach($this->config->item('gsm_payment_options') as $option): ?>
+						<label class="radio"><input type="radio" name="payment_time" value="<?php echo $option['value']; ?>"><?php echo $option['name']; ?></label>
+						<?php endforeach; ?>
 					</div>
 				</div>
 				<div class="control-group">

@@ -51,4 +51,10 @@
 				$this->load->view ('footer_view');
 			}
 		}
+
+		public function deactivate($user_id) {
+
+		}
+
+
 	}

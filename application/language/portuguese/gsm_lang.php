@@ -17,6 +17,7 @@
 
 	$lang['payment_add']         = 'Efetuar pagamento';
 	$lang['payment_date']        = 'Data do pagamento';
+	$lang['payment_date_last']   = 'Data do ultimo pagamento';
 	$lang['payment_valid_until'] = 'Valido ate';
 	$lang['payment_valid']       = 'Em dia';
 	$lang['payment_invalid']     = 'Vencido';
