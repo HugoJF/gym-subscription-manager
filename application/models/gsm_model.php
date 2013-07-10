@@ -120,4 +120,9 @@
 
 			return $query;
 		}
+
+		public function get_deactivated_users() {
+			$query = $this->db->query('SELECT users.id, users.first_name, users.last_name, users.email FROM users WHERE users.id IN (SELECT user_id FROM users_deactivated)');
+			return $query;
+		}
 	}

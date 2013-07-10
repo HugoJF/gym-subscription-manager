@@ -39,6 +39,7 @@
 	$lang['user_name']       = 'Nome';
 	$lang['user_status']     = 'Status';
 	$lang['user_info_about'] = 'Informações sobre';
+	$lang['user_email']      = 'Email';
 
 	$lang['general_more_info']     = 'Mais informações';
 	$lang['general_actions']       = 'Ações';

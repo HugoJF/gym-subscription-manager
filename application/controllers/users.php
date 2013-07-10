@@ -59,4 +59,11 @@
 			redirect('dashboard');
 		}
 
+		public function deactivated() {
+			$users = $this->gsm_model->get_deactivated_users();
+			$this->load->view('header_view');
+			$this->load->view('users_deactivated_view', array('users' => $users));
+			$this->load->view('footer_view');
+		}
+
 	}
