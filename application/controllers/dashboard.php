@@ -69,4 +69,138 @@
 				$this->db->insert('users', $data);
 			}
 		}
+		
+		public function csv_decryption() {
+			$data = $this->load->view('csv_data', '', TRUE);
+			$data = preg_split('/\n/ ', $data);
+			$data = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $data);
+			$data_processed = array();
+			foreach($data as $data_s) {
+				$data_s_proc = explode(',', $data_s);
+				if(!isset($data_s_proc[5]) || !isset($data_s_proc[3])) continue;
+				if($data_s_proc[0] == '' || $data_s_proc[1] == '') continue;
+				array_push($data_processed, $data_s_proc);
+			}
+			
+			$final = array();
+			foreach($data_processed as $p) {
+				$rid = $p[0];
+				$name = $p[1];
+				$type = $p[2];
+				$bd = $p[4];
+				$gender = $p[5];
+				list($day, $month, $year) = explode('/', $bd);
+				$day = intval($day);
+				$month = intval($month);
+				$year = intval($year);
+				$bd = mktime(0, 0, 0, $month, $day, $year);
+				array_push($final, array(
+					'rid' => $rid,
+					'name' => $name,
+					'type' => $type,
+					'birthday' => date('d.m.Y', $bd),
+					'gender' => $gender
+				));
+			}
+			print_r($final);
+			$this->output->enable_profiler(true);
+		}
+		
+		function populate_payments() {
+		while(true) {
+			$data = array(
+				'user_id' => rand(0, 50),
+				'date' => date("Y-m-d H:i:s", time()),
+				'valid_until' => date("Y-m-d H:i:s", time())
+			);
+		$this->db->insert('payments', $data);
+		}
+		}
+		function populate_memory() {
+		while(true) {
+			$data = array(
+				'user_id' => rand(0, 50),
+				'valid_until' => date("Y-m-d H:i:s", time())
+			);
+		$this->db->insert('memory_test', $data);
+		}
+		}
+		
+		function populate_users() {
+			$i = 0;
+			while(true) {
+				$data = array(
+					'username' => 'administrator' . $i,
+					'password' => '59beecdf7fc966e2f17fd8f65a4a9aeb09d4a3d4',
+					'salt' => '9462e8eee0',
+					'email' => 'admin' . $i . '@admin.com',
+					'created_on' => 1268889823,
+					'last_login' => 1268889823,
+					'active' => 1,
+					'first_name' => 'admin' . $i,
+					'last_name' => 'istrator',
+					'company' => 'ADMIN'
+				);
+				$this->db->insert('users', $data);
+				$i++;
+			}
+		}
+		//http://www.youtube.com/watch?v=DlvM68JBYkQ
+		function do_tests() {
+			$this->output->enable_profiler(true);
+			echo '<pre>';
+			
+			
+			//id
+			$id_array = array();
+			for($i = 1; $i <= 30; $i++) {
+				array_push($id_array, $i);
+			}
+			echo '<h1>ID ARRAY</h1>';
+			print_r($this->get_users_info($id_array));
+			//name
+			$name_query = $this->db->query('SELECT id FROM users ORDER BY first_name ASC, last_name ASC LIMIT 30');
+			$name_array = array();
+			foreach($name_query->result_array() as $name_q) {
+				array_push($name_array, $name_q['id']);
+			}
+			echo '<h1>NAME ARRAY</h1>';
+			print_r($this->get_users_info($name_array));
+			//payment date
+			$pd_query = $this->db->query('SELECT DISTINCT user_id FROM payments ORDER BY DATE DESC LIMIT 30');
+			$pd_array = array();
+			foreach($pd_query->result_array() as $pd) {
+				array_push($pd_array, $pd['user_id']);
+			}
+			echo '<h1>PAYMENT DATE ARRAY</h1>';
+			print_r($this->get_users_info($pd_array));
+			//payments valid until
+			$pvu_query = $this->db->query('SELECT DISTINCT user_id FROM payments ORDER BY valid_until DESC LIMIT 30');
+			$pvu_array = array();
+			foreach($pvu_query->result_array() as $pvu) {
+				array_push($pvu_array, $pvu['user_id']);
+			}
+			echo '<h1>PAYMENT VALID UNTIL ARRAY</h1>';
+			print_r($this->get_users_info($pvu_array));
+			
+			echo '</pre>';
+		}
+		
+		private function get_users_info($users = NULL) {
+			if($users == NULL) return FALSE;
+			
+			$final_query = '';
+			
+			for($i = 1; $i <= sizeof($users); $i++) {
+				if($i != 1) {
+					$final_query .= ' UNION ALL ';
+				}
+				$final_query .= "(SELECT u.id, u.username, u.first_name, u.last_name, u.email, payments.id as payment_id, payments.date as payment_date, payments.valid_until as payment_valid_until FROM `payments` left join users as u on u.id = payments.user_id where user_id = $i order by payments.date desc, payments.id desc limit 1)";
+			}
+			
+			$query = $this->db->query($final_query);
+			
+			return $query->result();
+			
+		}
 	}
