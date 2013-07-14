@@ -1,11 +1,11 @@
 <?php
-
+	/*
 	$names = $this->gsm_model->get_all_users_name();
 	$users_name = array();
 	foreach($names->result() as $name) {
 		array_push($users_name, $name->first_name . ' ' . $name->last_name);
 	}
-
+	*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
