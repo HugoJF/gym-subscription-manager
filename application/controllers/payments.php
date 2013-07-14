@@ -36,8 +36,7 @@
 								  'user_id'     => $user_id);
 					$this->db->insert('payments', $data);
 					$this->session->set_flashdata('message', 'Payment added successfully');
-					print_r($data);
-					//redirect('dashboard');
+					redirect('dashboard');
 				} else {
 					//Open confirmation window
 					$this->load->view('header_view');
