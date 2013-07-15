@@ -12,66 +12,57 @@
 
 		}
 
-		function get_user($user_id = -1, $return_last_payment = FALSE) {
+		function get_user($user_id = -1) {
 			if($user_id == - 1)
 				return FALSE;
-			if($return_last_payment == TRUE) {
-				$query = $this->db->query("SELECT u.id, u.username, u.first_name, u.last_name, u.email, payment_id, payment_date, payment_valid_until FROM users AS u LEFT JOIN ( SELECT * FROM ( SELECT payments.id AS payment_id, payments.user_id, payments.date AS payment_date, payments.valid_until AS payment_valid_until FROM payments WHERE user_id =$user_id ORDER BY valid_until DESC ) AS a GROUP BY a.user_id ) AS b ON u.id = b.user_id WHERE u.id =$user_id");
+			$this->db->from('users');
+			$this->db->select('id, first_name, last_name, username, email, last_payment_id AS payment_id, last_payment_date AS payment_date, last_payment_valid_until AS payment_valid_until');
+			$this->db->where('id', $user_id);
+			$this->db->limit(1);
+			$query = $this->db->get();
+			if($query->num_rows() == 0) {
+				return FALSE;
 			} else {
-				$this->db->from('users');
-				$this->db->select('id AS user_id, first_name, last_name, email');
-				$this->db->where('id', $user_id);
-				$this->db->limit(1);
-				$query = $this->db->get();
+				return $query;
 			}
-
-			return $query;
 		}
 
-		function get_users($users_id = -1, $return_last_payment = FALSE) {
+		function get_users($users_id = -1) {
 			if($users_id == - 1 || sizeof($users_id) == 0)
 				return FALSE;
-			if($return_last_payment == TRUE) {
-				$mini_array = implode(', ', $users_id);
-				$query      = $this->db->query("SELECT u.id, u.username, u.first_name, u.last_name, u.email, b.id AS payment_id, b.date AS payment_date, b.valid_until AS payment_valid_until FROM users AS u LEFT JOIN ( SELECT * FROM ( SELECT payments.id, payments.user_id, payments.date, payments.valid_until FROM payments WHERE payments.user_id IN ($mini_array) ORDER BY valid_until DESC ) AS a GROUP BY a.user_id ) AS b ON b.user_id = u.id WHERE user_id IN ($mini_array)");
+			$this->db->from('users');
+			$this->db->select('id, first_name, last_name, username, email, last_payment_id AS payment_id, last_payment_date AS payment_date, last_payment_valid_until AS payment_valid_until');
+			$this->db->where_in('id', $users_id);
+			$this->db->limit(sizeof($users_id));
+			$query = $this->db->get();
+			if($query->num_rows() == 0) {
+				return FALSE;
 			} else {
-				$this->db->from('users');
-				$this->db->select('id, username,first_name, last_name, email');
-				$this->db->where_in('id', $users_id);
-				$query = $this->db->get();
-
+				return $query;
 			}
-
-			return $query;
 		}
 
-		function get_valid_users() {
-			$query = $this->db->query('SELECT u.id, u.username, u.first_name, u.last_name, u.email, grouped_query.id AS payment_id, grouped_query.date AS payment_date, grouped_query.valid_until AS payment_valid_until FROM users AS u LEFT JOIN ( SELECT * FROM ( SELECT payments.id, payments.user_id, payments.date, payments.valid_until FROM payments ORDER BY valid_until DESC ) AS ordered_query GROUP BY ordered_query.user_id ) AS grouped_query ON grouped_query.user_id = u.id WHERE u.id IN ( SELECT a.user_id FROM ( SELECT user_id FROM payments WHERE valid_until > NOW( ) ORDER BY valid_until DESC ) AS a GROUP BY user_id )');
-
-			return $query;
+		function get_valid_users($offset = 0, $limit = 30) {
+			$now = time();
+			$query = $this->db->query("SELECT id, first_name, last_name, username, email, last_payment_id AS payment_id, last_payment_date AS payment_date, last_payment_valid_until AS payment_valid_until FROM users WHERE payment_valid_until > $now LIMIT $offset, $limit");
+			if($query->num_rows() == 0) {
+				return FALSE;
+			} else {
+				return $query;
+			}
 		}
 
-		function get_invalid_users() {
-			$query = $this->db->query('SELECT u.id, u.username, u.first_name, u.last_name, u.email, grouped_query.id AS payment_id, grouped_query.date AS payment_date, grouped_query.valid_until AS payment_valid_until FROM users AS u LEFT JOIN ( SELECT * FROM ( SELECT payments.id, payments.user_id, payments.date, payments.valid_until FROM payments ORDER BY valid_until DESC ) AS ordered_query GROUP BY ordered_query.user_id ) AS grouped_query ON grouped_query.user_id = u.id WHERE u.id NOT IN ( SELECT a.user_id FROM ( SELECT user_id FROM payments WHERE valid_until > NOW( ) ORDER BY valid_until DESC ) AS a GROUP BY user_id )');
-
-			return $query;
+		function get_invalid_users($offset = 0, $limit = 30) {
+			$now = time();
+			$query = $this->db->query("SELECT id, first_name, last_name, username, email, last_payment_id AS payment_id, last_payment_date AS payment_date, last_payment_valid_until AS payment_valid_until FROM users WHERE payment_valid_until < $now LIMIT $offset, $limit");
+			if($query->num_rows() == 0) {
+				return FALSE;
+			} else {
+				return $query;
+			}
 		}
 		
-		function get_from_ids($sorting = 'ASC', $offset = 0, $limit = 30) {
-			$query = $this->db->query("SELECT id FROM users ORDER BY id $sorting LIMIT $offset, $limit");
-			$ids = array();
-			foreach($query->result_array() as $id) {
-				array_push($ids, $id['id']);
-			}
-			
-			return $ids;	
-		}
-		
-		function get_all_users($sorting = '', $offset = -1, $limit = -1) {
-			if($offset == - 1 || $limit == - 1) {
-				$offset = 0;
-				$limit  = $this->config->item('gsm_users_per_page');
-			}
+		function get_all_users($sorting = '', $offset = 0, $limit = 30) {
 			switch($sorting) {
 				default:
 				case 'user_id/ASC':
@@ -99,16 +90,11 @@
 					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users ORDER BY payment_valid_until DESC LIMIT $offset, $limit");
 					break;
 			}
-
-			return $query;
-		}
-
-		function get_all_users_name() {
-			$this->db->from('users');
-			$this->db->select('first_name, last_name');
-			$query = $this->db->get();
-
-			return $query;
+			if($query->num_rows() == 0) {
+				return FALSE;
+			} else {
+				return $query;
+			}
 		}
 
 		function get_payments($user_id = -1) {
@@ -123,22 +109,8 @@
 			return $query;
 		}
 
-		function get_id_from_name($user_name = '') {
-			if($user_name == '')
-				return FALSE;
-			$query = $this->db->query("SELECT id FROM users WHERE CONCAT( first_name,  ' ', last_name ) =  '$user_name' LIMIT 1");
-
-			return $query;
-		}
-
-		public function get_deactivated_users() {
-			$query = $this->db->query('SELECT users.id, users.first_name, users.last_name, users.email FROM users WHERE users.id IN (SELECT user_id FROM users_deactivated)');
-
-			return $query;
-		}
-
 		public function is_user_deactivated($user_id) {
-			$query = $this->db->query("SELECT IF( COUNT( * ) =1, 1, 0 ) AS r FROM users_deactivated WHERE user_id = $user_id LIMIT 0 , 30");
+			$query = $this->db->query("SELECT IF( COUNT(*)=1, 1, 0 ) AS r FROM users_deactivated WHERE user_id = $user_id LIMIT 1");
 			if($query->first_row()->r == '1') {
 				return TRUE;
 			} else {

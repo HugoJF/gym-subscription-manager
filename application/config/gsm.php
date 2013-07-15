@@ -15,6 +15,7 @@
 	$config['gsm_payment_valid_until_format'] = 'l j \of F Y';
 	$config['gsm_payment_date_detail_format']        = 'l jS \of F Y h:i:s A';
 	$config['gsm_payment_valid_until_detail_format'] = 'l jS \of F Y h:i:s A';
+	$config['gsm_payments_add_conf_remaining_format'] = 'l j \of F Y';
 	$config['gsm_password_payment_required']  = FALSE;
 	$config['gsm_payment_warning_time']       = 604800;
 	$config['gsm_users_per_page']             = 20;

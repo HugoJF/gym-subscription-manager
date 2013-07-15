@@ -59,6 +59,14 @@
 			$this->load->view('footer_view');
 		}
 		
+		public function testing() {
+			echo '<pre>';
+			
+			print_r($this->gsm_model->get_user(1)->result());
+			
+			echo '</pre>';
+		}
+		
 		public function csv_decryption() {
 			$data = $this->load->view('csv_data', '', TRUE);
 			$data = preg_split('/\n/ ', $data);
@@ -71,4 +79,5 @@
 				array_push($data_processed, $data_s_proc);
 			}
 		//http://www.youtube.com/watch?v=DlvM68JBYkQ
+		}
 	}

@@ -31,8 +31,8 @@
 			if($this->form_validation->run() == TRUE) {
 				//Is adding payment go confirm
 				if(isset($_POST['confirmed'])) {
-					$data = array('date'        => date("Y-m-d H:i:s"),
-								  'valid_until' => date("Y-m-d H:i:s", (time() + $_POST['payment_time'])),
+					$data = array('date'        => time(),
+								  'valid_until' => time() + $_POST['payment_time'],
 								  'user_id'     => $user_id);
 					$this->db->insert('payments', $data);
 					$this->session->set_flashdata('message', 'Payment added successfully');
