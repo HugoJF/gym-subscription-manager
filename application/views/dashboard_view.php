@@ -157,7 +157,7 @@
 								<td><?php echo ($valid) ? $this->lang->line('payment_valid') : $this->lang->line('payment_invalid'); ?></td>
 								<td>
 									<a class="btn btn-mini" href="<?php echo base_url('users/detail/' . $user->id) ?>">
-										<strong>Mais Informacoes</strong>
+										<strong><?php echo $this->lang->line('general_more_info'); ?></strong>
 									</a>
 								</td>
 								</tr>
