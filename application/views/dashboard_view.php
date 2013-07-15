@@ -93,11 +93,11 @@
 					</thead>
 					<tbody>
 						<?php foreach($users->result() as $user): ?>
-							<?php $valid = (strtotime($user->payment_valid_until) > now()) ? TRUE : FALSE; ?>
-							<?php $remaining = ceil((strtotime($user->payment_valid_until) - time()) / 60 / 60 / 24); ?>
+							<?php $valid = ($user->payment_valid_until > now()) ? TRUE : FALSE; ?>
+							<?php $remaining = ceil(($user->payment_valid_until - time()) / 60 / 60 / 24); ?>
 
 							<?php if($valid):
-								if($this->config->item('gsm_payment_warning_time') > strtotime($user->payment_valid_until) - time()): ?>
+								if($this->config->item('gsm_payment_warning_time') > $user->payment_valid_until - time()): ?>
 									<tr class="warning">
 								<?php else: ?>
 									<tr class="success">
@@ -110,7 +110,7 @@
 							<td><?php echo $user->id ?></td>
 							<td><?php echo $user->first_name . ' ' . $user->last_name ?></td>
 							<?php if($user->payment_date != ''): ?>
-								<td><?php echo date($this->config->item('gsm_payment_date_format'), strtotime($user->payment_date)); ?>
+								<td><?php echo date($this->config->item('gsm_payment_date_format'), $user->payment_date); ?>
 									(
 									<?php echo abs($remaining);
 										echo ' ';
@@ -128,7 +128,7 @@
 							<?php else: ?>
 								<td><?php echo $this->lang->line('general_not_available'); ?></td>
 							<?php endif; ?>
-							<td><?php echo ($user->payment_valid_until != '') ? date($this->config->item('gsm_payment_valid_until_format'), strtotime($user->payment_valid_until)) : $this->lang->line('general_not_available'); ?></td>
+							<td><?php echo ($user->payment_valid_until != '') ? date($this->config->item('gsm_payment_valid_until_format'), $user->payment_valid_until) : $this->lang->line('general_not_available'); ?></td>
 							<td><?php echo ($valid) ? $this->lang->line('payment_valid') : $this->lang->line('payment_invalid'); ?></td>
 							<td>
 								<a class="btn btn-mini" href="<?php echo base_url('users/detail/' . $user->id) ?>">
