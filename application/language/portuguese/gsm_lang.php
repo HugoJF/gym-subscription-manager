@@ -26,6 +26,7 @@
 	$lang['payment_confirm']        = 'Confirmar pagamento';
 	$lang['payment_valid_time']     = 'Período';
 	$lang['payment_remaining_days'] = 'Dias restantes';
+	$lang['payment_days_ago']       = 'Dias atrás';
 
 	$lang['header_title']             = 'GSM';
 	$lang['header_home']              = 'Início';
@@ -42,6 +43,7 @@
 	$lang['user_status']     = 'Status';
 	$lang['user_info_about'] = 'Informações sobre';
 	$lang['user_email']      = 'Email';
+	$lang['user_not_available'] = 'Não há mais usuários nesta página';
 
 	$lang['general_more_info']     = 'Mais informações';
 	$lang['general_actions']       = 'Ações';

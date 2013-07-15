@@ -28,7 +28,7 @@
 						<h4><?php
 
 						if(isset($user->payment_date)): 
-							echo date($this->config->item('gsm_payments_add_conf_remaining_format'), $user->payment_date) . ' ' . round((time() - $user->payment_date) / (60 * 60 * 24))  	. ' ' . strtolower($this->lang->line('payment_remaining_days'));
+							echo date($this->config->item('gsm_payments_add_conf_remaining_format'), $user->payment_date) . ' (' . round((time() - $user->payment_date) / (60 * 60 * 24))  	. ' ' . strtolower($this->lang->line('payment_days_ago')) . ')';
 						else:
 						$this->lang->line('general_not_available'); 
 						endif;

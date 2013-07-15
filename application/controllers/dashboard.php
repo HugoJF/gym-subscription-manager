@@ -53,7 +53,6 @@
 		}
 
 		private function load_dashboard($users) {
-			$this->output->enable_profiler(TRUE);
 			$this->load->view('header_view');
 			$this->load->view('dashboard_view', array('users' => $users));
 			$this->load->view('footer_view');
