@@ -25,8 +25,15 @@
 					<label class="control-label"><?php echo $this->lang->line ('payment_last'); ?></label>
 
 					<div class="controls">
-						<h4><?php echo (isset($user->payment_date) ? $user->payment_date : $this->lang->line ('general_not_available')); ?>
-							(x dias atras)</h4>
+						<h4><?php
+
+						if(isset($user->payment_date)): 
+							echo date($this->config->item('gsm_payments_add_conf_remaining_format'), $user->payment_date) . ' (' . round((time() - $user->payment_date) / (60 * 60 * 24))  	. ' ' . strtolower($this->lang->line('payment_days_ago')) . ')';
+						else:
+						$this->lang->line('general_not_available'); 
+						endif;
+						
+						?></h4>
 					</div>
 				</div>
 				<div class="control-group">

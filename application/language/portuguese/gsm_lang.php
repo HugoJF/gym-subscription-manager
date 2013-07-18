@@ -15,16 +15,18 @@
 	$lang['login_last_name']  = 'Sobrenome';
 	$lang['login_register']   = 'Registrar';
 
-	$lang['payment_add']         = 'Efetuar pagamento';
-	$lang['payment_date']        = 'Data do pagamento';
-	$lang['payment_date_last']   = 'Data do ultimo pagamento';
-	$lang['payment_valid_until'] = 'Válido ate';
-	$lang['payment_valid']       = 'Em dia';
-	$lang['payment_invalid']     = 'Vencido';
-	$lang['payment_list']        = 'Lista de pagamentos';
-	$lang['payment_last']        = 'Último pagamento';
-	$lang['payment_confirm']     = 'Confirmar pagamento';
-	$lang['payment_valid_time']  = 'Período';
+	$lang['payment_add']            = 'Efetuar pagamento';
+	$lang['payment_date']           = 'Data do pagamento';
+	$lang['payment_date_last']      = 'Data do ultimo pagamento';
+	$lang['payment_valid_until']    = 'Válido ate';
+	$lang['payment_valid']          = 'Em dia';
+	$lang['payment_invalid']        = 'Vencido';
+	$lang['payment_list']           = 'Lista de pagamentos';
+	$lang['payment_last']           = 'Último pagamento';
+	$lang['payment_confirm']        = 'Confirmar pagamento';
+	$lang['payment_valid_time']     = 'Período';
+	$lang['payment_remaining_days'] = 'Dias restantes';
+	$lang['payment_days_ago']       = 'Dias atrás';
 
 	$lang['header_title']             = 'GSM';
 	$lang['header_home']              = 'Início';
@@ -41,6 +43,7 @@
 	$lang['user_status']     = 'Status';
 	$lang['user_info_about'] = 'Informações sobre';
 	$lang['user_email']      = 'Email';
+	$lang['user_not_available'] = 'Não há mais usuários nesta página';
 
 	$lang['general_more_info']     = 'Mais informações';
 	$lang['general_actions']       = 'Ações';

@@ -80,7 +80,7 @@
 		<input name="password" type="password" class="input-block-level"
 			   placeholder="<?php echo $this->lang->line ('login_password') ?>">
 
-		<button class="btn btn-large btn-primary" type="submit"><? echo $this->lang->line ('login_enter'); ?></button>
+		<button class="btn btn-large btn-primary" type="submit"><?php echo $this->lang->line ('login_enter'); ?></button>
 	</form>
 
 </div>

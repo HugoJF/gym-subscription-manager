@@ -1,11 +1,11 @@
 <?php
-
+	/*
 	$names = $this->gsm_model->get_all_users_name();
 	$users_name = array();
 	foreach($names->result() as $name) {
 		array_push($users_name, $name->first_name . ' ' . $name->last_name);
 	}
-
+	*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -243,7 +243,7 @@
 						<!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
 					</ul>
 						<form method="POST"action="<?php echo base_url('users/detail')?>" style="margin-top: 5px"class="navbar-form pull-right">
-							<input type="text" name="user" data-provide="typeahead" data-items="5" data-source="<?php echo '[&quot;' . implode('&quot;, &quot;', $users_name) . '&quot;]'; ?>" placeholder="<?php echo $this->lang->line('user_name'); ?>" autocomplete="off">
+							<input type="text" name="user" data-provide="typeahead" data-items="5" data-source="<?php /* echo '[&quot;' . implode('&quot;, &quot;', $users_name) . '&quot;]'; */?>" placeholder="<?php echo $this->lang->line('user_name'); ?>" autocomplete="off">
 						</form>
 				</div>
 				<!--/.nav-collapse -->

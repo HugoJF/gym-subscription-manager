@@ -53,20 +53,30 @@
 		}
 
 		private function load_dashboard($users) {
-			$this->output->enable_profiler(TRUE);
 			$this->load->view('header_view');
 			$this->load->view('dashboard_view', array('users' => $users));
 			$this->load->view('footer_view');
 		}
-
-		public function superpopulatepayments() {
-			$this->output->enable_profiler(TRUE);
-			for($i = 0; $i < 10000; $i ++) {
-				$data = array('ip_address' => '00000000000000000000000000000001', 'username' => 'administrator' . $i,
-							  'password'   => '3531e4e40812dd5ae8cb64a14e504c0b0ae71272',
-							  'email'      => 'admimnistrator' . $i . '@email.com', 'created_on' => '1373205992',
-							  'active'     => '1', 'first_name' => 'admin', 'last_name' => 'istrator',);
-				$this->db->insert('users', $data);
+		
+		public function testing() {
+			echo '<pre>';
+			
+			print_r($this->gsm_model->get_user(1)->result());
+			
+			echo '</pre>';
+		}
+		
+		public function csv_decryption() {
+			$data = $this->load->view('csv_data', '', TRUE);
+			$data = preg_split('/\n/ ', $data);
+			$data = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $data);
+			$data_processed = array();
+			foreach($data as $data_s) {
+				$data_s_proc = explode(',', $data_s);
+				if(!isset($data_s_proc[5]) || !isset($data_s_proc[3])) continue;
+				if($data_s_proc[0] == '' || $data_s_proc[1] == '') continue;
+				array_push($data_processed, $data_s_proc);
 			}
+		//http://www.youtube.com/watch?v=DlvM68JBYkQ
 		}
 	}
