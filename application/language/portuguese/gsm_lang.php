@@ -47,5 +47,5 @@
 	$lang['general_not_available'] = 'N/A';
 	$lang['general_day']           = 'Dia';
 	$lang['general_days']          = 'Dias';
-
-	$lang[''] = '';
+	$lang['general_version']       = '0.2 Alpha';
+	$lang['']                      = '';
