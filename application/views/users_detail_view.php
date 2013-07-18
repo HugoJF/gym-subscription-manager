@@ -27,12 +27,12 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php $valid = (strtotime($user->payment_valid_until) > now()) ? TRUE : FALSE; ?>
+						<?php $valid = ($user->payment_valid_until) > now() ? TRUE : FALSE; ?>
 						<tr class="<?php echo ($valid) ? 'info' : 'error'; ?>">
 							<td><?php echo $user->id; ?></td>
 							<td><?php echo $user->first_name . ' ' . $user->last_name; ?></td>
-							<td><?php echo ($user->payment_date != '') ? date($this->config->item('gsm_payment_date_format'), strtotime($user->payment_date)) : $this->lang->line('general_not_available'); ?></td>
-							<td><?php echo ($user->payment_valid_until != '') ? date($this->config->item('gsm_payment_valid_until_format'), strtotime($user->payment_valid_until)) : $this->lang->line('general_not_available'); ?></td>
+							<td><?php echo ($user->payment_date != '') ? date($this->config->item('gsm_payment_date_format'), $user->payment_date) : $this->lang->line('general_not_available'); ?></td>
+							<td><?php echo ($user->payment_valid_until != '') ? date($this->config->item('gsm_payment_valid_until_format'), $user->payment_valid_until) : $this->lang->line('general_not_available'); ?></td>
 							<td><?php echo ($valid) ? $this->lang->line('payment_valid') : $this->lang->line('payment_invalid') ?></td>
 						</tr>
 					</tbody>
@@ -51,11 +51,11 @@
 					</thead>
 					<tbody>
 						<?php foreach($payments->result() as $payment): ?>
-							<?php $valid = (strtotime($payment->valid_until) > time()) ? TRUE : FALSE ?>
+							<?php $valid = ($payment->valid_until) > time() ? TRUE : FALSE ?>
 							<tr class="<?php echo ($valid) ? 'success' : 'error'; ?>">
 								<td><?php echo $payment->id; ?></td>
-								<td><?php echo date($this->config->item('gsm_payment_date_detail_format'), strtotime($payment->date)); ?></td>
-								<td><?php echo date($this->config->item('gsm_payment_valid_until_detail_format'), strtotime($payment->valid_until)); ?></td>
+								<td><?php echo date($this->config->item('gsm_payment_date_detail_format'), $payment->date); ?></td>
+								<td><?php echo date($this->config->item('gsm_payment_valid_until_detail_format'), $payment->valid_until); ?></td>
 							</tr>
 						<?php endforeach; ?>
 					</tbody>

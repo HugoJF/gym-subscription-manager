@@ -46,16 +46,7 @@
       <file leaf-file-name="dashboard_view.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/dashboard_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="161" column="51" selection-start="6779" selection-end="6779" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="footer_view.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/footer_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="78" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0">
+            <state line="197" column="51" selection-start="7496" selection-end="7496" vertical-scroll-proportion="-0.65384614">
               <folding />
             </state>
           </provider>
@@ -64,7 +55,25 @@
       <file leaf-file-name="users_detail_view.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/users_detail_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="162" selection-start="720" selection-end="720" vertical-scroll-proportion="0.0">
+            <state line="29" column="75" selection-start="1322" selection-end="1322" vertical-scroll-proportion="-6.5384617">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ion_auth.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/config/ion_auth.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="169" column="42" selection-start="7820" selection-end="7820" vertical-scroll-proportion="-19.346153">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ion_auth_lang.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/language/portuguese/ion_auth_lang.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="0" selection-start="748" selection-end="748" vertical-scroll-proportion="0.43002915">
               <folding />
             </state>
           </provider>
@@ -73,7 +82,7 @@
       <file leaf-file-name="gsm_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/gsm_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="131" column="43" selection-start="9305" selection-end="9305" vertical-scroll-proportion="0.0">
+            <state line="113" column="43" selection-start="5329" selection-end="5329" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -82,7 +91,7 @@
       <file leaf-file-name="users.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="42" selection-start="1801" selection-end="1801" vertical-scroll-proportion="-12.192307">
+            <state line="56" column="37" selection-start="2057" selection-end="2057" vertical-scroll-proportion="-32.692307">
               <folding />
             </state>
           </provider>
@@ -100,16 +109,7 @@
       <file leaf-file-name="payments.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/payments.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="35" selection-start="1303" selection-end="1303" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="header_view.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/header_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="0" selection-start="2039" selection-end="2039" vertical-scroll-proportion="0.0">
+            <state line="37" column="35" selection-start="1190" selection-end="1190" vertical-scroll-proportion="-21.038462">
               <folding />
             </state>
           </provider>
@@ -118,16 +118,16 @@
       <file leaf-file-name="gsm.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/config/gsm.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="78" selection-start="794" selection-end="794" vertical-scroll-proportion="0.0">
+            <state line="17" column="70" selection-start="902" selection-end="902" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gsm_lang.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="gsm_lang.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/language/portuguese/gsm_lang.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="49" selection-start="1922" selection-end="1922" vertical-scroll-proportion="0.8466742">
+            <state line="52" column="49" selection-start="2122" selection-end="2122" vertical-scroll-proportion="-29.846153">
               <folding />
             </state>
           </provider>
@@ -151,7 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/views/login_view.php" />
         <option value="$PROJECT_DIR$/application/views/header_view.php" />
         <option value="$PROJECT_DIR$/application/views/payments_add_conf_view.php" />
         <option value="$PROJECT_DIR$/application/config/gsm.html" />
@@ -164,18 +163,19 @@
         <option value="$PROJECT_DIR$/application/controllers/payments.php" />
         <option value="$PROJECT_DIR$/application/controllers/index.html" />
         <option value="$PROJECT_DIR$/application/models/gsm_model.php" />
-        <option value="$PROJECT_DIR$/application/views/users_detail_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/users.php" />
         <option value="$PROJECT_DIR$/application/language/portuguese/gsm_lang.php" />
+        <option value="$PROJECT_DIR$/application/views/users_detail_view.php" />
+        <option value="$PROJECT_DIR$/application/config/ion_auth.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="-1448" />
     <option name="y" value="-8" />
-    <option name="width" value="1869" />
-    <option name="height" value="1096" />
+    <option name="width" value="1456" />
+    <option name="height" value="916" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -307,6 +307,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="language" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gym-subscription-manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gym-subscription-manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="language" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="portuguese" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gym-subscription-manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gym-subscription-manager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -341,8 +381,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -387,14 +427,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1869" height="1096" extended-state="6" />
-    <editor active="false" />
+    <frame x="-1448" y="-8" width="1456" height="916" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24958494" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14886552" sideWeight="0.6709265" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19512194" sideWeight="0.6709265" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290735" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -470,26 +510,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/config/profiler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/login_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="44" selection-start="2563" selection-end="2563" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/autoload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="78" selection-start="1799" selection-end="1799" vertical-scroll-proportion="-0.28410372" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/ion_auth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="60" column="0" selection-start="2027" selection-end="2027" vertical-scroll-proportion="0.0" />
@@ -502,7 +522,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/header_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="0" selection-start="2039" selection-end="2039" vertical-scroll-proportion="0.0">
+        <state line="75" column="0" selection-start="2045" selection-end="2045" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -516,14 +536,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/dashboard_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="51" selection-start="6779" selection-end="6779" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/payments.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="35" selection-start="1303" selection-end="1303" vertical-scroll-proportion="0.0">
+        <state line="197" column="51" selection-start="7496" selection-end="7496" vertical-scroll-proportion="-0.65384614">
           <folding />
         </state>
       </provider>
@@ -537,35 +550,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/config/gsm.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="78" selection-start="794" selection-end="794" vertical-scroll-proportion="0.0">
+        <state line="17" column="70" selection-start="902" selection-end="902" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/gsm_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="43" selection-start="9305" selection-end="9305" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/users_detail_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="162" selection-start="720" selection-end="720" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="42" selection-start="1801" selection-end="1801" vertical-scroll-proportion="-12.192307">
+        <state line="113" column="43" selection-start="5329" selection-end="5329" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/language/portuguese/gsm_lang.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="49" selection-start="1922" selection-end="1922" vertical-scroll-proportion="0.8466742">
+        <state line="52" column="49" selection-start="2122" selection-end="2122" vertical-scroll-proportion="-29.846153">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/payments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="35" selection-start="1190" selection-end="1190" vertical-scroll-proportion="-21.038462">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="37" selection-start="2057" selection-end="2057" vertical-scroll-proportion="-32.692307">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/users_detail_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="75" selection-start="1322" selection-end="1322" vertical-scroll-proportion="-6.5384617">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/language/portuguese/auth_lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/ion_auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="169" column="42" selection-start="7820" selection-end="7820" vertical-scroll-proportion="-19.346153">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/language/portuguese/ion_auth_lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="748" selection-end="748" vertical-scroll-proportion="0.43002915">
           <folding />
         </state>
       </provider>
