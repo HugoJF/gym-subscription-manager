@@ -8,12 +8,12 @@
 	 */
 	class Payments extends CI_Controller
 	{
+
 		public function index()
 		{
 			$the_user  = $this->ion_auth->user()->row();
 			$user_info = $this->gsm_model->get_user($the_user->id);
 			$payments  = $this->gsm_model->get_payments($the_user->id);
-
 
 			$this->load->view('header_view');
 			echo '<pre>';
@@ -22,6 +22,7 @@
 			echo '</pre>';
 			$this->load->view('footer_view');
 		}
+
 
 		public function add($user_id = -1)
 		{

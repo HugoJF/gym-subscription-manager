@@ -33,16 +33,16 @@
 	$lang['header_register_user']     = 'Registrar novo usuário';
 	$lang['header_deactivated_users'] = 'Usuários desativados';
 
-	$lang['user']            = 'Usuário';
-	$lang['user_deactivate'] = 'Desativar usuário';
-	$lang['user_activate']   = 'Ativar usuário';
-	$lang['user_options']    = 'Opções do usuário';
-	$lang['user_list_all']   = 'Lista de todos os usuários';
-	$lang['user_id']         = 'ID';
-	$lang['user_name']       = 'Nome';
-	$lang['user_status']     = 'Status';
-	$lang['user_info_about'] = 'Informações sobre';
-	$lang['user_email']      = 'Email';
+	$lang['user']               = 'Usuário';
+	$lang['user_deactivate']    = 'Desativar usuário';
+	$lang['user_activate']      = 'Ativar usuário';
+	$lang['user_options']       = 'Opções do usuário';
+	$lang['user_list_all']      = 'Lista de todos os usuários';
+	$lang['user_id']            = 'ID';
+	$lang['user_name']          = 'Nome';
+	$lang['user_status']        = 'Status';
+	$lang['user_info_about']    = 'Informações sobre';
+	$lang['user_email']         = 'Email';
 	$lang['user_not_available'] = 'Não há mais usuários nesta página';
 
 	$lang['general_more_info']     = 'Mais informações';
@@ -52,5 +52,5 @@
 	$lang['general_days']          = 'Dias';
 	$lang['general_version']       = '0.2 Alpha';
 
-	$lang['error_cant_access']     = 'Sua conta nao tem autorizacao para entrar no sistema';
-	$lang['']                      = '';
+	$lang['error_cant_access'] = 'Sua conta nao tem autorizacao para entrar no sistema';
+	$lang['']                  = '';
