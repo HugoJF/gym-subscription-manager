@@ -3,7 +3,7 @@
 		<div class="span12">
 			<h2><?php echo $this->lang->line('payment_add'); ?></h2>
 
-			<form method="POST" action="<?php echo current_url (); ?>" class="form-horizontal">
+			<form method="POST" action="<?php echo current_url(); ?>" class="form-horizontal">
 				<div class="control-group">
 					<label class="control-label" for="inputEmail"><?php echo $this->lang->line('login_email'); ?></label>
 
