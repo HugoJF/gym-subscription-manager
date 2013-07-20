@@ -6,6 +6,7 @@
 			<form method="POST" action="<?php echo current_url (); ?>" class="form-horizontal">
 				<input type="hidden" name="confirmed" value="yes">
 				<input type="hidden" name="payment_time" value="<?php echo $_POST['payment_time']; ?>">
+				<input type="hidden" name="payment_method" value="<?php echo $_POST['payment_method']; ?>">
 
 				<div class="control-group">
 					<label class="control-label"><?php echo $this->lang->line ('user'); ?></label>
@@ -34,6 +35,12 @@
 						endif;
 						
 						?></h4>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">Metodo</label>
+					<div class="controls">
+						<h4><?php echo $_POST['payment_method']; ?></h4>
 					</div>
 				</div>
 				<div class="control-group">

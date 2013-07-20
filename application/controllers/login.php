@@ -26,6 +26,7 @@
 						redirect('login');
 					}
 				} else {
+					//Login fail
 					$this->load->view('login_view');
 				}
 			} else {

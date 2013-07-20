@@ -11,10 +11,17 @@
 					</div>
 				</div>
 				<div class="control-group">
+					<label class="control-label">Metodo</label>
+					<div class="controls">
+						<label class="radio"><input type="radio" name="payment_method" value="renew">Renovar(data do pagamento = hoje)</label>
+						<label class="radio"><input type="radio" name="payment_method" value="extend">Extender(data do pagamento = data de vencimento do ultimo pagamento)</label>
+					</div>
+				</div>
+				<div class="control-group">
 					<label class="control-label"><?php echo $this->lang->line('payment_valid_time'); ?></label>
 					<div class="controls">
 						<?php foreach($this->config->item('gsm_payment_options') as $option): ?>
-						<label class="radio"><input type="radio" name="payment_time" value="<?php echo $option['value']; ?>"><?php echo $option['name']; ?></label>
+						<label class="radio"><input type="radio" name="payment_time" value="<?php echo $option['value'] . '|' . $option['type']; ?>"><?php echo $option['name']; ?></label>
 						<?php endforeach; ?>
 					</div>
 				</div>

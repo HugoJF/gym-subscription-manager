@@ -51,4 +51,6 @@
 	$lang['general_day']           = 'Dia';
 	$lang['general_days']          = 'Dias';
 	$lang['general_version']       = '0.2 Alpha';
+
+	$lang['error_cant_access']     = 'Sua conta nao tem autorizacao para entrar no sistema';
 	$lang['']                      = '';

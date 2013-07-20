@@ -66,28 +66,28 @@
 			switch($sorting) {
 				default:
 				case 'user_id/ASC':
-					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users ORDER BY id ASC LIMIT $offset, $limit"); 
+					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users WHERE users.id NOT IN (SELECT user_id FROM users_deactivated) ORDER BY id ASC LIMIT $offset, $limit");
 					break;
 				case 'user_id/DESC':
-					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users ORDER BY id DESC LIMIT $offset, $limit"); 
+					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users WHERE users.id NOT IN (SELECT user_id FROM users_deactivated) ORDER BY id DESC LIMIT $offset, $limit");
 					break;
 				case 'name/ASC':
-					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users ORDER BY first_name ASC, last_name ASC LIMIT $offset, $limit"); 
+					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users WHERE users.id NOT IN (SELECT user_id FROM users_deactivated) ORDER BY first_name ASC, last_name ASC LIMIT $offset, $limit");
 					break;
 				case 'name/DESC':
-					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users ORDER BY first_name DESC, last_name DESC LIMIT $offset, $limit");
+					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users WHERE users.id NOT IN (SELECT user_id FROM users_deactivated) ORDER BY first_name DESC, last_name DESC LIMIT $offset, $limit");
 					break;
 				case 'payment_date/ASC':
-					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users ORDER BY payment_date ASC LIMIT $offset, $limit");
+					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users WHERE users.id NOT IN (SELECT user_id FROM users_deactivated) ORDER BY payment_date ASC LIMIT $offset, $limit");
 					break;
 				case 'payment_date/DESC':
-					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users ORDER BY payment_date DESC LIMIT $offset, $limit");
+					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users WHERE users.id NOT IN (SELECT user_id FROM users_deactivated) ORDER BY payment_date DESC LIMIT $offset, $limit");
 					break;
 				case 'payment_valid_until/ASC':
-					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users ORDER BY payment_valid_until ASC LIMIT $offset, $limit");
+					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users WHERE users.id NOT IN (SELECT user_id FROM users_deactivated) ORDER BY payment_valid_until ASC LIMIT $offset, $limit");
 					break;
 				case 'payment_valid_until/DESC':
-					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users ORDER BY payment_valid_until DESC LIMIT $offset, $limit");
+					$query = $this->db->query("SELECT users.id, users.first_name, users.last_name, users.email, last_payment_id as payment_id, last_payment_date as payment_date, last_payment_valid_until as payment_valid_until FROM users WHERE users.id NOT IN (SELECT user_id FROM users_deactivated) ORDER BY payment_valid_until DESC LIMIT $offset, $limit");
 					break;
 			}
 			if($query->num_rows() == 0) {

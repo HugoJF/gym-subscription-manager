@@ -70,12 +70,14 @@
 
 		<p class="text-error"><?php echo $this->session->flashdata ('error'); ?></p>
 
-		<?php if (form_error ('email') !== '')
+		<p class="text-error"><?php echo $this->ion_auth->errors(); ?></p>
+
+		<?php if (form_error ('email') != '')
 			echo form_error ('email'); ?>
 		<input name="email" type="text" class="input-block-level"
 			   placeholder="<?php echo $this->lang->line ('login_email'); ?>">
 
-		<?php if (form_error ('password') !== '')
+		<?php if (form_error ('password') != '')
 			echo form_error ('password'); ?>
 		<input name="password" type="password" class="input-block-level"
 			   placeholder="<?php echo $this->lang->line ('login_password') ?>">
