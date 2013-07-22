@@ -53,7 +53,7 @@
 		|	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 		*/
 
-		$autoload['libraries'] = array('database', 'session', 'ion_auth', 'form_validation');
+		$autoload['libraries'] = array('database', 'session', 'ion_auth', 'form_validation', 'tablebuilder');
 
 
 		/*
@@ -65,7 +65,7 @@
 		|	$autoload['helper'] = array('url', 'file');
 		*/
 
-		$autoload['helper'] = array('url');
+		$autoload['helper'] = array('url', 'gsm_helper');
 
 
 		/*
