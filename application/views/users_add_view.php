@@ -26,9 +26,19 @@
 					</div>
 				</div>
 				<div class="control-group">
+					<label class="control-label" for="inputLastName">Grupo</label>
+
 					<div class="controls">
-						<label class="checkbox">
-						</label>
+						<select name="group">
+							<option></option>
+							<?php foreach($groups as $group):?>
+								<option value="<?php echo $group->id; ?>"><?php echo $group->description; ?></option>
+							<?php endforeach; ?>
+						</select>
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="controls">
 						<button type="submit" class="btn btn-primary"><?php echo $this->lang->line('login_register'); ?></button>
 					</div>
 				</div>

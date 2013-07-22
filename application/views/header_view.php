@@ -248,7 +248,7 @@
 						<!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
 					</ul>
 					<form method="POST" action="<?php echo base_url('users/detail') ?>" style="margin-top: 5px" class="navbar-form pull-right">
-						<input type="text" name="user" data-provide="typeahead" data-items="5" data-source="<?php /* echo '[&quot;' . implode('&quot;, &quot;', $users_name) . '&quot;]'; */ ?>" placeholder="<?php echo $this->lang->line('user_name'); ?>" autocomplete="off">
+						<input disabled type="text" name="user" data-provide="typeahead" data-items="5" data-source="" placeholder="<?php echo $this->lang->line('user_name'); ?>" autocomplete="off">
 					</form>
 				</div>
 				<!--/.nav-collapse -->

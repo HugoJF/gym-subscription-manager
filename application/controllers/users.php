@@ -38,6 +38,7 @@
 			$this->form_validation->set_error_delimiters('<p class="text-error">', '</p>');
 			$this->form_validation->set_rules('first_name', 'Primeiro nome', 'required');
 			$this->form_validation->set_rules('last_name', 'Ultimo nome', 'required');
+			$this->form_validation->set_rules('group', 'Grupo', 'required');
 
 			if($this->form_validation->run() == TRUE)
 			{
@@ -45,7 +46,7 @@
 				$password        = 'password';
 				$email           = ($_POST['email'] == '') ? $_POST['first_name'] . $_POST['last_name'] . '@email.com' : $_POST['email'];
 				$additional_data = array('first_name' => $_POST['first_name'], 'last_name' => $_POST['last_name'],);
-				$group           = array('2');
+				$group           = array($_POST['group']);
 
 				$result = $this->ion_auth->register($username, $password, $email, $additional_data, $group);
 				if($result != FALSE)
@@ -61,7 +62,7 @@
 			else
 			{
 				$this->load->view('header_view');
-				$this->load->view('users_add_view');
+				$this->load->view('users_add_view', array('groups' => $this->ion_auth->groups()->result()));
 				$this->load->view('footer_view');
 			}
 		}
@@ -86,9 +87,41 @@
 
 		public function deactivated()
 		{
-			$users = $this->gsm_model->get_deactivated_users();
+			$deactivated_users = $this->gsm_model->get_deactivated_users();
+
+			$table = new Table('table table-hover table-bordered');
+			$table_header = new TableHeader();
+			$table_body = new TableBody();
+
+			$table->add_header($table_header);
+			$table->add_body($table_body);
+
+			$row = new TableRow();
+			$row->add_tabledata(new TableData('ID'));
+			$row->add_tabledata(new TableData('Name'));
+			$row->add_tabledata(new TableData('Payment date'));
+			$row->add_tabledata(new TableData('Payment valid until'));
+			$row->add_tabledata(new TableData('Acoes'));
+			$table_header->set_table_row($row);
+
+			foreach($deactivated_users->result() as $user)
+			{
+				$row = new TableRow();
+
+				$row->set_class('info');
+
+				$row->add_tabledata(new TableData($user->id));
+				$row->add_tabledata(new TableData($user->first_name . ' ' . $user->last_name));
+				$row->add_tabledata(new TableData(($user->payment_date == '' ? 'N/A' : date('F j, Y, g:i a', $user->payment_date))));
+				$row->add_tabledata(new TableData(($user->payment_date == '' ? 'N/A' : date('F j, Y, g:i a', $user->payment_valid_until))));
+				$row->add_tabledata(new TableData('<a class="btn btn-mini" href="' . base_url('users/detail/' . $user->id) . '"><strong>Mais informacoes</strong></a>'));
+
+
+				$table_body->add_table_row($row);
+			}
+
 			$this->load->view('header_view');
-			$this->load->view('users_deactivated_view', array('users' => $users));
+			$this->load->view('users_deactivated_view', array('table' => $table));
 			$this->load->view('footer_view');
 		}
 

@@ -11,96 +11,60 @@
 
 		public function index()
 		{
-			$query = $this->gsm_model->get_all_users('', 0, $this->config->item('gsm_users_per_page'));
-			$this->load_dashboard($query);
-		}
+			$this->output->enable_profiler(TRUE);
+			//Array of tables to show
+			$tables = array();
 
-
-		public function user_id($type = 'DESC', $offset = -1, $limit = -1)
-		{
-			if($offset == - 1 || $limit == - 1)
+			//Push a table for each group present in ion_auth
+			foreach($this->ion_auth->groups()->result() as $group)
 			{
-				$offset = 0;
-				$limit  = $this->config->item('gsm_users_per_page');
+				$query = $this->gsm_model->get_all_users_from_group($group->id);
+				$table = build_user_table_from_query($query, $group);
+				if($table == FALSE)
+				{
+					continue;
+				}
+				$table->set_name($group->name);
+				$table->set_description($group->description);
+				array_push($tables, $table);
 			}
-			$sorting = 'user_id/' . strtoupper($type);
-			$query   = $this->gsm_model->get_all_users($sorting, $offset, $limit);
-			$this->load_dashboard($query);
-		}
 
-
-		public function name($type = 'DESC', $offset = -1, $limit = -1)
-		{
-			if($offset == - 1 || $limit == - 1)
-			{
-				$offset = 0;
-				$limit  = $this->config->item('gsm_users_per_page');
-			}
-			$sorting = 'name/' . strtoupper($type);
-			$query   = $this->gsm_model->get_all_users($sorting, $offset, $limit);
-			$this->load_dashboard($query);
-		}
-
-
-		public function payment_date($type = 'DESC', $offset = -1, $limit = -1)
-		{
-			if($offset == - 1 || $limit == - 1)
-			{
-				$offset = 0;
-				$limit  = $this->config->item('gsm_users_per_page');
-			}
-			$sorting = 'payment_date/' . strtoupper($type);
-			$query   = $this->gsm_model->get_all_users($sorting, $offset, $limit);
-			$this->load_dashboard($query);
-		}
-
-
-		public function payment_valid_until($type = 'DESC', $offset = -1, $limit = -1)
-		{
-			if($offset == - 1 || $limit == - 1)
-			{
-				$offset = 0;
-				$limit  = $this->config->item('gsm_users_per_page');
-			}
-			$sorting = 'payment_valid_until/' . strtoupper($type);
-			$query   = $this->gsm_model->get_all_users($sorting, $offset, $limit);
-			$this->load_dashboard($query);
-		}
-
-
-		private function load_dashboard($users)
-		{
 			$this->load->view('header_view');
-			$this->load->view('dashboard_view', array('users' => $users));
+			$this->load->view('dashboard_view', array('tables' => $tables));
 			$this->load->view('footer_view');
 		}
 
 
-		public function testing()
+		public function order($group_name = '', $field = '', $order_type = '')
 		{
-			echo '<pre>';
+			$this->output->enable_profiler(TRUE);
 
-			print_r($this->gsm_model->get_user(1)->result());
+			$tables = array();
 
-			echo '</pre>';
-		}
-
-
-		public function csv_decryption()
-		{
-			$data           = $this->load->view('csv_data', '', TRUE);
-			$data           = preg_split('/\n/ ', $data);
-			$data           = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $data);
-			$data_processed = array();
-			foreach($data as $data_s)
+			foreach($this->ion_auth->groups()->result() as $group)
 			{
-				$data_s_proc = explode(',', $data_s);
-				if(! isset($data_s_proc[5]) || ! isset($data_s_proc[3]))
+				if(strtolower($group_name) == strtolower($group->name))
+				{
+					$query = $this->gsm_model->get_all_users_from_group($group->id, strtolower($field) . '/' . strtoupper($order_type));
+					$table = build_user_table_from_query($query, $group);
+				}
+				else
+				{
+					$query = $this->gsm_model->get_all_users_from_group($group->id);
+					$table = build_user_table_from_query($query, $group);
+				}
+
+				if($table == FALSE)
+				{
 					continue;
-				if($data_s_proc[0] == '' || $data_s_proc[1] == '')
-					continue;
-				array_push($data_processed, $data_s_proc);
+				}
+				$table->set_name($group->name);
+				$table->set_description($group->description);
+				array_push($tables, $table);
 			}
-			//http://www.youtube.com/watch?v=DlvM68JBYkQ
+
+			$this->load->view('header_view');
+			$this->load->view('dashboard_view', array('tables' => $tables));
+			$this->load->view('footer_view');
 		}
 	}

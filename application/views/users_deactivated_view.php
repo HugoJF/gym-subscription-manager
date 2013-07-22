@@ -28,34 +28,7 @@
 			<br>
 
 			<div style="overflow-y: auto;width:100%;padding-bottom: 75px" id="table-wrapper">
-				<table class="table table-hover table-bordered">
-					<thead>
-						<th><?php echo $this->lang->line('user_id'); ?></th>
-
-						<th><?php echo $this->lang->line('user_name'); ?></th>
-
-						<th><?php echo $this->lang->line('user_email'); ?></th>
-						<th class="action-table-header"><?php echo $this->lang->line('general_actions'); ?> </th>
-					</thead>
-					<tbody>
-						<?php foreach($users->result() as $user): ?>
-
-							<tr class="info">
-
-								<td><?php echo $user->id ?></td>
-								<td><?php echo $user->first_name . ' ' . $user->last_name ?></td>
-								<td><?php echo $user->email; ?></td>
-								<td>
-									<a class="btn btn-mini" href="<?php echo base_url('users/detail/' . $user->id) ?>">
-										<strong>Mais Informacoes</strong>
-									</a>
-								</td>
-							</tr>
-
-						<?php endforeach; ?>
-
-					</tbody>
-				</table>
+				<?php echo $table->get(); ?>
 			</div>
 		</div>
 		<!-- /.row -->

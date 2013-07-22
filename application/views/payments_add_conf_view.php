@@ -28,10 +28,10 @@
 					<div class="controls">
 						<h4><?php
 
-								if(isset($user->payment_date)):
+								if(isset($user->payment_date) && $user->payment_date != ''):
 									echo date($this->config->item('gsm_payments_add_conf_remaining_format'), $user->payment_date) . ' (' . round((time() - $user->payment_date) / (60 * 60 * 24)) . ' ' . strtolower($this->lang->line('payment_days_ago')) . ')';
 								else:
-									$this->lang->line('general_not_available');
+									echo $this->lang->line('general_not_available');
 								endif;
 
 							?></h4>
@@ -41,16 +41,27 @@
 					<label class="control-label">Metodo</label>
 
 					<div class="controls">
-						<h4><?php echo $_POST['payment_method']; ?></h4>
+						<?php if($_POST['payment_method'] == 'renew'): ?>
+							<h4>Renovacao</h4>
+						<?php elseif($_POST['payment_method'] == 'extend'): ?>
+							<h4>Estender</h4>
+						<?php endif; ?>
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label"><?php echo $this->lang->line('payment_valid_time'); ?></label>
 
 					<div class="controls">
-						<h4><?php echo intval($_POST['payment_time']) / 24 / 60 / 60;
-								echo ' ';
-								echo strtolower($this->lang->line('general_days')) ?></h4>
+						<?php $payment_type = explode('|', $_POST['payment_time']); ?>
+						<?php if($payment_type[1] == 'maintain_day'): ?>
+
+							<h4><?php echo intval($_POST['payment_time']) . ' ' . ((intval($_POST['payment_time']) == 1) ? ' mes' : ' meses'); ?></h4>
+
+						<?php elseif($payment_type[1] == 'period_sum'): ?>
+
+							<h4><?php echo intval($_POST['payment_time']) / 24 / 60 / 60 . ' ' . strtolower($this->lang->line('general_days')) ?></h4>
+
+						<?php endif; ?>
 					</div>
 				</div>
 				<div class="control-group">
