@@ -35,7 +35,46 @@
 
 		public function edit($user_id = -1)
 		{
+			$this->form_validation->set_error_delimiters('<p class="text-error">', '</p>');
+			$this->form_validation->set_rules('sending', 'token', 'required');
 
+			$user = $this->ion_auth->user($user_id)->row();
+
+			if($this->form_validation->run() == TRUE)
+			{
+				$data = array('email'      => ($_POST['email'] != '' ? $_POST['email'] : $user->email),
+							  'first_name' => ($_POST['first_name'] != '' ? $_POST['first_name'] : $user->first_name),
+							  'last_name'  => ($_POST['last_name'] != '' ? $_POST['last_name'] : $user->last_name));
+				if(! empty($_POST['group']) && $_POST['group'] != - 1)
+				{
+					if(!$this->ion_auth->remove_from_group(NULL, $user_id))
+					{
+						$this->session->set_flashdata('error', 'Error removing user from groups');
+						redirect('dashboard');
+					}
+					if(!$this->ion_auth_model->add_to_group($_POST['group'], $user_id))
+					{
+						$this->session->set_flashdata('error', 'Error adding user to group');
+						redirect('dashboard');
+					}
+				}
+				if($this->ion_auth->update($user_id, $data) == TRUE)
+				{
+					$this->session->set_flashdata('message', 'User edited successfully');
+				}
+				else
+				{
+					$this->session->set_flashdata('error', $this->ion_auth->errors());
+				}
+				redirect('dashboard');
+			}
+			else
+			{
+				$this->load->view('header_view');
+				$this->load->view('users_edit_view', array('user'   => $user,
+														   'groups' => $this->ion_auth->groups()->result()));
+				$this->load->view('footer_view');
+			}
 		}
 
 
