@@ -114,7 +114,7 @@
 				$row->add_tabledata(new TableData($user->first_name . ' ' . $user->last_name));
 				$row->add_tabledata(new TableData(($user->payment_date == '' ? 'N/A' : date('F j, Y, g:i a', $user->payment_date))));
 				$row->add_tabledata(new TableData(($user->payment_date == '' ? 'N/A' : date('F j, Y, g:i a', $user->payment_valid_until))));
-				$row->add_tabledata(new TableData('<a class="btn btn-mini" href="' . base_url('users/detail/' . $user->id) . '"><strong>Mais informacoes</strong></a>'));
+				$row->add_tabledata(new TableData('<a class="btn btn-mini btn-success" href="' . base_url('users/activate/' . $user->id) . '">Ativar usuario</a><a class="btn btn-mini" href="' . base_url('users/detail/' . $user->id) . '"><strong>Mais informacoes</strong></a>'));
 
 
 				$table_body->add_table_row($row);
