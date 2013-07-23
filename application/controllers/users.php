@@ -51,6 +51,7 @@
 				$result = $this->ion_auth->register($username, $password, $email, $additional_data, $group);
 				if($result != FALSE)
 				{
+					$this->session->set_flashdata('message', 'User ' . $username . ' created successfully');
 					redirect('users/detail/' . $result);
 				}
 				else
