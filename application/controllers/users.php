@@ -33,6 +33,12 @@
 		}
 
 
+		public function edit($user_id = -1)
+		{
+
+		}
+
+
 		public function add()
 		{
 			$this->form_validation->set_error_delimiters('<p class="text-error">', '</p>');
@@ -90,9 +96,9 @@
 		{
 			$deactivated_users = $this->gsm_model->get_deactivated_users();
 
-			$table = new Table('table table-hover table-bordered');
+			$table        = new Table('table table-hover table-bordered');
 			$table_header = new TableHeader();
-			$table_body = new TableBody();
+			$table_body   = new TableBody();
 
 			$table->add_header($table_header);
 			$table->add_body($table_body);
@@ -116,7 +122,6 @@
 				$row->add_tabledata(new TableData(($user->payment_date == '' ? 'N/A' : date('F j, Y, g:i a', $user->payment_date))));
 				$row->add_tabledata(new TableData(($user->payment_date == '' ? 'N/A' : date('F j, Y, g:i a', $user->payment_valid_until))));
 				$row->add_tabledata(new TableData('<a class="btn btn-mini btn-success" href="' . base_url('users/activate/' . $user->id) . '">Ativar usuario</a><a class="btn btn-mini" href="' . base_url('users/detail/' . $user->id) . '"><strong>Mais informacoes</strong></a>'));
-
 
 				$table_body->add_table_row($row);
 			}

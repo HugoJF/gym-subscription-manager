@@ -8,6 +8,7 @@
 			<?php else: ?>
 				<a href="<?php echo base_url('users/deactivate/' . $user->id); ?>" class="btn btn-primary"><?php echo $this->lang->line('user_deactivate'); ?></a>
 			<?php endif; ?>
+				<a href="<?php echo base_url('users/edit/' . $user->id) ?>" class="btn btn-primary">Editar usuario</a>
 			<br>
 			<br>
 
