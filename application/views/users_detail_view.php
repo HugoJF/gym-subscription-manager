@@ -2,13 +2,19 @@
 	<div class="row">
 		<div class="span12">
 			<h2><?php echo $this->lang->line('user_info_about'); ?> <?php echo $user->first_name . ' ' . $user->last_name ?></h2>
-			<a href="<?php echo base_url('payments/add/' . $user->id); ?>" class="btn btn-primary"><?php echo $this->lang->line('payment_add'); ?></a>
+
+			<a href="<?php echo base_url('dashboard'); ?>" class="btn btn-inverse"><i class="icon-arrow-left icon-white"></i> Voltar</a>
+
+			<a href="<?php echo base_url('payments/add/' . $user->id); ?>" class="btn"><i class="icon-tags"></i> <?php echo $this->lang->line('payment_add'); ?></a>
+
+			<a href="<?php echo base_url('users/edit/' . $user->id) ?>" class="btn"><i class="icon-pencil"></i> Editar usuario</a>
+
 			<?php if($this->gsm_model->is_user_deactivated($user->id)): ?>
-				<a href="<?php echo base_url('users/activate/' . $user->id); ?>" class="btn btn-primary"><?php echo $this->lang->line('user_activate'); ?></a>
+				<a href="<?php echo base_url('users/activate/' . $user->id); ?>" class="btn btn-success"><i class="icon-ok-sign icon-white"></i> <?php echo $this->lang->line('user_activate'); ?></a>
 			<?php else: ?>
-				<a href="<?php echo base_url('users/deactivate/' . $user->id); ?>" class="btn btn-primary"><?php echo $this->lang->line('user_deactivate'); ?></a>
+				<a href="<?php echo base_url('users/deactivate/' . $user->id); ?>" class="btn btn-danger"><i class="icon-remove-sign icon-white"></i> <?php echo $this->lang->line('user_deactivate'); ?></a>
 			<?php endif; ?>
-				<a href="<?php echo base_url('users/edit/' . $user->id) ?>" class="btn btn-primary">Editar usuario</a>
+
 			<br>
 			<br>
 

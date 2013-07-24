@@ -11,7 +11,6 @@
 
 		public function index()
 		{
-			$this->output->enable_profiler(TRUE);
 			//Array of tables to show
 			$tables = array();
 
@@ -32,6 +31,7 @@
 			$this->load->view('header_view');
 			$this->load->view('dashboard_view', array('tables' => $tables));
 			$this->load->view('footer_view');
+			log_message('debug', 'Everything is loaded');
 		}
 
 
@@ -66,5 +66,10 @@
 			$this->load->view('header_view');
 			$this->load->view('dashboard_view', array('tables' => $tables));
 			$this->load->view('footer_view');
+		}
+
+
+		public function test()
+		{
 		}
 	}

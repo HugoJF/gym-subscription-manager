@@ -65,7 +65,7 @@
 		|	$autoload['helper'] = array('url', 'file');
 		*/
 
-		$autoload['helper'] = array('url', 'gsm_helper');
+		$autoload['helper'] = array('url', 'gsm_helper', 'language');
 
 
 		/*

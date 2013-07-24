@@ -68,18 +68,17 @@
 					{
 						//The new payment date equals last payments expiration
 						list($period, $method) = explode('|', $_POST['payment_time']);
-						$user = $this->ion_auth->user()->row();
 						if($method == 'period_sum')
 						{
 							//payment time is int = adding perion only
 							$date        = time();
-							$valid_until = $user->last_payment_valid_until + $period;
+							$valid_until = (empty($user->last_payment_valid_until) ? time() : $user->last_payment_valid_until) + $period;
 						}
 						else if($method == 'maintain_day')
 						{
 							//maintaining payment day
 							$date          = time();
-							$date_formated = date('H-i-s-m-j-Y', $user->last_payment_valid_until);
+							$date_formated = date('H-i-s-m-j-Y', (empty($user->last_payment_valid_until) ? time() : $user->last_payment_valid_until));
 							list($hour, $minute, $second, $month, $day, $year) = explode('-', $date_formated);
 							$valid_until = mktime($hour, $minute, $second, $month + $period, $day, $year);
 						}

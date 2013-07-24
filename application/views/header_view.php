@@ -1,12 +1,3 @@
-<?php
-	/*
-	$names = $this->gsm_model->get_all_users_name();
-	$users_name = array();
-	foreach($names->result() as $name) {
-		array_push($users_name, $name->first_name . ' ' . $name->last_name);
-	}
-	*/
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -233,22 +224,22 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="brand" href="<?php echo base_url(); ?>"><?php echo $this->lang->line('header_title'); ?></a>
+				<a class="brand" href="<?php echo base_url(); ?>"><?php echo lang('header_title'); ?></a>
 				<!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li class="active">
-							<a href="<?php echo base_url(); ?>"><?php echo $this->lang->line('header_home'); ?></a></li>
+							<a href="<?php echo base_url(); ?>"><?php echo lang('header_home'); ?></a></li>
 						<li>
-							<a href="<?php echo base_url('users/add'); ?>"><?php echo $this->lang->line('header_register_user'); ?></a>
+							<a href="<?php echo base_url('users/add'); ?>"><?php echo lang('header_register_user'); ?></a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('users/deactivated'); ?>"><?php echo $this->lang->line('header_deactivated_users'); ?></a>
+							<a href="<?php echo base_url('users/deactivated'); ?>"><?php echo lang('header_deactivated_users'); ?></a>
 						</li>
 						<!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
 					</ul>
 					<form method="POST" action="<?php echo base_url('users/detail') ?>" style="margin-top: 5px" class="navbar-form pull-right">
-						<input disabled type="text" name="user" data-provide="typeahead" data-items="5" data-source="" placeholder="<?php echo $this->lang->line('user_name'); ?>" autocomplete="off">
+						<input disabled type="text" name="user" data-provide="typeahead" data-items="5" data-source="" placeholder="<?php echo lang('user_name'); ?>" autocomplete="off">
 					</form>
 				</div>
 				<!--/.nav-collapse -->

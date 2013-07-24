@@ -16,8 +16,6 @@
 				return FALSE;
 			}
 			$CI =& get_instance();
-			//Load main library
-			$CI->load->library('TableBuilder');
 
 			//Creates main table components
 			$table        = new Table('table table-hover table-bordered');
@@ -107,7 +105,8 @@
 				$row->add_tabledata(new TableData(($user['payment_date'] == '' ? 'N/A' : date('F j, Y, g:i a', $user['payment_date']))));
 				$row->add_tabledata(new TableData(($user['payment_date'] == '' ? 'N/A' : date('F j, Y, g:i a', $user['payment_valid_until']))));
 				$row->add_tabledata(new TableData(($user['payment_valid_until']) < time() ? 'Vencido' : 'Em dia'));
-				$row->add_tabledata(new TableData('<a class="btn btn-mini" href="' . base_url('users/detail/' . $user['id'] . '"><strong>Mais informacoes</strong></a>')));
+				$row->add_tabledata(new TableData('<a class="btn btn-mini" href="' . base_url('users/detail/' . $user['id'] . '"><i class="icon-plus"></i><strong> Mais informacoes</strong></a>')));
+
 
 				$table_body->add_table_row($row);
 
