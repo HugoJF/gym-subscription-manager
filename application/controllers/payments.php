@@ -33,6 +33,7 @@
 			$this->form_validation->set_error_delimiters('<p class="text-error">', '</p>');
 			$this->form_validation->set_rules('payment_time', 'Tempo do pagamento', 'required');
 			$this->form_validation->set_rules('payment_method', 'Metodo de pagamento', 'required');
+			$user = $this->ion_auth->user($user_id)->row();
 
 			if($this->form_validation->run() == TRUE)
 			{

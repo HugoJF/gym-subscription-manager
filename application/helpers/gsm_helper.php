@@ -23,8 +23,8 @@
 			$table_body   = new TableBody();
 
 			//Binding components to table
-			$table->add_body($table_body);
-			$table->add_header($table_header);
+			$table->add_child($table_header);
+			$table->add_child($table_body);
 
 			//Bind TableRow to represent TableHeader
 			$row = new TableRow();
@@ -48,51 +48,61 @@
 			//User id header
 			if($field == 'user_id' && $group_order == $group->name)
 			{
-				$row->add_tabledata(new TableData('<a href="' . base_url('dashboard/order/' . $group->name . '/user_id/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>ID ' . $symbol . '</strong></a>'));
+				$td = new TableData();
+				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/user_id/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>ID ' . $symbol . '</strong></a>'));
 			}
 			else
 			{
-				$row->add_tabledata(new TableData('<a href="' . base_url('dashboard/order/' . $group->name . '/user_id/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>ID</strong></a>'));
+				$td = new TableData();
+				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/user_id/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>ID</strong></a>'));
 			}
 
 			//If sorting this field and sorting current group/table
 			//User name header
 			if($field == 'name' && $group_order == $group->name)
 			{
-				$row->add_tabledata(new TableData('<a href="' . base_url('dashboard/order/' . $group->name . '/name/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>Nome ' . $symbol . '</strong></a>'));
+				$td = new TableData();
+				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/name/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>Nome ' . $symbol . '</strong></a>'));
 			}
 			else
 			{
-				$row->add_tabledata(new TableData('<a href="' . base_url('dashboard/order/' . $group->name . '/name/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>Nome</strong></a>'));
+				$td = new TableData();
+				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/name/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>Nome</strong></a>'));
 			}
 
 			//If sorting this field and sorting current group/table
 			//Payment date header
 			if($field == 'payment_date' && $group_order == $group->name)
 			{
-				$row->add_tabledata(new TableData('<a href="' . base_url('dashboard/order/' . $group->name . '/payment_date/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>Data do ultimo pagamento ' . $symbol . '</strong></a>'));
+				$td = new TableData();
+				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/payment_date/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>Data do ultimo pagamento ' . $symbol . '</strong></a>'));
 			}
 			else
 			{
-				$row->add_tabledata(new TableData('<a href="' . base_url('dashboard/order/' . $group->name . '/payment_date/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>Data do ultimo pagamento</strong></a>'));
+				$td = new TableData();
+				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/payment_date/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>Data do ultimo pagamento</strong></a>'));
 			}
 
 			//If sorting this field and sorting current group/table
 			//Payment valid until header
 			if($field == 'payment_valid_until' && $group_order == $group->name)
 			{
-				$row->add_tabledata(new TableData('<a href="' . base_url('dashboard/order/' . $group->name . '/payment_valid_until/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><Strong>Valido ate ' . $symbol . '</strong></a>'));
+				$td = new TableData();
+				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/payment_valid_until/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><Strong>Valido ate ' . $symbol . '</strong></a>'));
 			}
 			else
 			{
-				$row->add_tabledata(new TableData('<a href="' . base_url('dashboard/order/' . $group->name . '/payment_valid_until/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><Strong>Valido ate</strong></a>'));
+				$td = new TableData();
+				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/payment_valid_until/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><Strong>Valido ate</strong></a>'));
 			}
 
-			$row->add_tabledata(new TableData('<strong>Status</strong>'));
-			$row->add_tabledata(new TableData('<strong>Acoes</strong>'));
+			$td = new TableData();
+			$row->add_child($td->add_child('<strong>Status</strong>'));
+			$td = new TableData();
+			$row->add_child($td->add_child('<strong>Acoes</strong>'));
 
 			//Bind table row to header
-			$table_header->set_table_row($row);
+			$table_header->add_child($row);
 
 			//Populates table with contents
 			foreach($query->result_array() as $user)
@@ -100,15 +110,20 @@
 				$row = new TableRow();
 				$row->set_class(($user['payment_valid_until'] < time()) ? 'error' : 'success');
 
-				$row->add_tabledata(new TableData($user['id']));
-				$row->add_tabledata(new TableData($user['first_name'] . ' ' . $user['last_name']));
-				$row->add_tabledata(new TableData(($user['payment_date'] == '' ? 'N/A' : date('F j, Y, g:i a', $user['payment_date']))));
-				$row->add_tabledata(new TableData(($user['payment_date'] == '' ? 'N/A' : date('F j, Y, g:i a', $user['payment_valid_until']))));
-				$row->add_tabledata(new TableData(($user['payment_valid_until']) < time() ? 'Vencido' : 'Em dia'));
-				$row->add_tabledata(new TableData('<a class="btn btn-mini" href="' . base_url('users/detail/' . $user['id'] . '"><i class="icon-plus"></i><strong> Mais informacoes</strong></a>')));
+				$td = new TableData();
+				$row->add_child($td->add_child($user['id']));
+				$td = new TableData();
+				$row->add_child($td->add_child($user['first_name'] . ' ' . $user['last_name']));
+				$td = new TableData();
+				$row->add_child($td->add_child(($user['payment_date'] == '' ? 'N/A' : date('F j, Y, g:i a', $user['payment_date']))));
+				$td = new TableData();
+				$row->add_child($td->add_child(($user['payment_date'] == '' ? 'N/A' : date('F j, Y, g:i a', $user['payment_valid_until']))));
+				$td = new TableData();
+				$row->add_child($td->add_child(($user['payment_valid_until']) < time() ? 'Vencido' : 'Em dia'));
+				$td = new TableData();
+				$row->add_child($td->add_child('<a class="btn btn-mini" href="' . base_url('users/detail/' . $user['id'] . '"><i class="icon-plus"></i><strong> Mais informacoes</strong></a>')));
 
-
-				$table_body->add_table_row($row);
+				$table_body->add_child($row);
 
 			}
 

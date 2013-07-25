@@ -28,7 +28,7 @@
 			<br>
 
 			<div style="overflow-y: auto;width:100%;padding-bottom: 75px" id="table-wrapper">
-				<?php echo $table->get(); ?>
+				<?php echo $table->get_element_html(); ?>
 			</div>
 		</div>
 		<!-- /.row -->

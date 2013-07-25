@@ -139,16 +139,21 @@
 			$table_header = new TableHeader();
 			$table_body   = new TableBody();
 
-			$table->add_header($table_header);
-			$table->add_body($table_body);
+			$table->add_child($table_header);
+			$table->add_child($table_body);
 
 			$row = new TableRow();
-			$row->add_tabledata(new TableData('ID'));
-			$row->add_tabledata(new TableData('Name'));
-			$row->add_tabledata(new TableData('Payment date'));
-			$row->add_tabledata(new TableData('Payment valid until'));
-			$row->add_tabledata(new TableData('Acoes'));
-			$table_header->set_table_row($row);
+			$td = new TableData();
+			$row->add_child($td->add_child('ID'));
+			$td = new TableData();
+			$row->add_child($td->add_child('Name'));
+			$td = new TableData();
+			$row->add_child($td->add_child('Payment date'));
+			$td = new TableData();
+			$row->add_child($td->add_child('Payment valid until'));
+			$td = new TableData();
+			$row->add_child($td->add_child('Acoes'));
+			$table_header->add_child($row);
 
 			foreach($deactivated_users->result() as $user)
 			{
@@ -156,13 +161,18 @@
 
 				$row->set_class('info');
 
-				$row->add_tabledata(new TableData($user->id));
-				$row->add_tabledata(new TableData($user->first_name . ' ' . $user->last_name));
-				$row->add_tabledata(new TableData(($user->payment_date == '' ? 'N/A' : date('F j, Y, g:i a', $user->payment_date))));
-				$row->add_tabledata(new TableData(($user->payment_date == '' ? 'N/A' : date('F j, Y, g:i a', $user->payment_valid_until))));
-				$row->add_tabledata(new TableData('<a class="btn btn-mini btn-success" href="' . base_url('users/activate/' . $user->id) . '">Ativar usuario</a><a class="btn btn-mini" href="' . base_url('users/detail/' . $user->id) . '"><strong>Mais informacoes</strong></a>'));
+				$td = new TableData();
+				$row->add_child($td->add_child($user->id));
+				$td = new TableData();
+				$row->add_child($td->add_child($user->first_name . ' ' . $user->last_name));
+				$td = new TableData();
+				$row->add_child($td->add_child(($user->payment_date == '' ? 'N/A' : date('F j, Y, g:i a', $user->payment_date))));
+				$td = new TableData();
+				$row->add_child($td->add_child(($user->payment_date == '' ? 'N/A' : date('F j, Y, g:i a', $user->payment_valid_until))));
+				$td = new TableData();
+				$row->add_child($td->add_child('<a class="btn btn-mini btn-success" href="' . base_url('users/activate/' . $user->id) . '">Ativar usuario</a><a class="btn btn-mini" href="' . base_url('users/detail/' . $user->id) . '"><strong>Mais informacoes</strong></a>'));
 
-				$table_body->add_table_row($row);
+				$table_body->add_child($row);
 			}
 
 			$this->load->view('header_view');

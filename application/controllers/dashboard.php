@@ -31,7 +31,6 @@
 			$this->load->view('header_view');
 			$this->load->view('dashboard_view', array('tables' => $tables));
 			$this->load->view('footer_view');
-			log_message('debug', 'Everything is loaded');
 		}
 
 

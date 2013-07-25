@@ -45,7 +45,7 @@
 					{
 						echo '<h4>' . $table->get_description() . ' (' . $table->get_name() . ')' . '</h4>';
 
-						echo $table->get();
+						echo $table->get_element_html();
 					}
 				?>
 
