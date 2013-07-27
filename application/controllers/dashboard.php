@@ -70,5 +70,9 @@
 
 		public function test()
 		{
+			$this->load->library('Paginator');
+			$paginator = new Pagination(10);
+			$paginator->set_current_page(10);
+			echo $paginator->get_html();
 		}
 	}
