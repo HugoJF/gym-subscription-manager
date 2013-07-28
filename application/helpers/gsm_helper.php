@@ -31,7 +31,7 @@
 			$method      = (isset($uri[1]) ? $uri[1] : 'order');
 			$group_order = (isset($uri[2]) ? $uri[2] : $group->name);
 			$field       = (isset($uri[3]) ? $uri[3] : 'id');
-			$type        = (isset($uri[4]) ? $uri[4] : 'ASC');
+			$type        = (isset($uri[4]) ? $uri[4] : 'DESC');
 			$page        = (isset($uri[5]) ? $uri[5] : 1);
 
 
