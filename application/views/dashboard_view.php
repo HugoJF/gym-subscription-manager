@@ -1,4 +1,3 @@
-<div class="container marketing">
 	<div class="row">
 		<div class="span12">
 
@@ -46,6 +45,8 @@
 						echo '<h4>' . $table->get_description() . ' (' . $table->get_name() . ')' . '</h4>';
 
 						echo $table->get_element_html();
+
+						echo '<hr>';
 					}
 				?>
 

@@ -15,6 +15,7 @@
 		private $show_last;
 		private $current_page;
 		private $max_pages;
+		private $link_format;
 
 		//Working variables
 		private $starting_page;
@@ -23,19 +24,21 @@
 
 
 		/**
-		 * @param int  $link_number - Number of page links total to show
-		 * @param bool $show_first - Show shortcut to first page
-		 * @param bool $show_last - Show showrtcut to last page(requires max_pages set)
+		 * @param int  $link_number  - Number of page links total to show
+		 * @param bool $show_first   - Show shortcut to first page
+		 * @param bool $show_last    - Show showrtcut to last page(requires max_pages set)
 		 * @param int  $current_page - The current page
-		 * @param null $max_pages - Max number of pages
+		 * @param null $max_pages    - Max number of pages
+		 * @param null $link_format  - The format of the page links - %s is replaced by the page number in the `href`
 		 */
-		public function __construct($link_number = 5, $show_first = TRUE, $show_last = TRUE, $current_page = 1, $max_pages = NULL)
+		public function __construct($link_number = 5, $show_first = TRUE, $show_last = TRUE, $current_page = 1, $max_pages = NULL, $link_format = '')
 		{
 			$this->link_number  = $link_number;
 			$this->show_first   = $show_first;
 			$this->show_last    = $show_last;
 			$this->current_page = $current_page;
 			$this->max_pages    = $max_pages;
+			$this->link         = $link_format;
 		}
 
 
@@ -72,6 +75,12 @@
 		public function get_current_page()
 		{
 			return $this->current_page;
+		}
+
+
+		public function get_link_format()
+		{
+			return $this->link_format;
 		}
 
 
@@ -127,12 +136,20 @@
 		}
 
 
+		public function set_link_format($link_format)
+		{
+			$this->link_format = $link_format;
+
+			return $this;
+		}
+
+
 		/**
 		 * @return string
 		 */
 		public function get_html()
 		{
-			$this->html .= '<ul class="pagination">';
+			$this->html .= '<div class="pagination pagination-centered pagination-large"><ul>';
 
 			$this->starting_page = $this->current_page - ceil($this->link_number / 2) + 1;
 			$this->ending_page   = $this->current_page + floor($this->link_number / 2);
@@ -146,12 +163,23 @@
 			{
 				$this->ending_page = $this->max_pages;
 			}
+			if($this->starting_page != 1 && $this->show_first == TRUE)
+			{
+				$href = sprintf($this->link_format, 1);
+				$this->html .= "<li><a href=\"$href\">&laquo;</a></li>";
+			}
 			for($i = $this->starting_page; $i <= $this->ending_page; $i ++)
 			{
-				$this->html .= "<li><a href=\"#\">$i</a></li>";
+				$href = sprintf($this->link_format, $i);
+				$this->html .= "<li><a href=\"$href\">$i</a></li>";
+			}
+			if(isset($this->max_pages) && $this->ending_page == $this->max_pages)
+			{
+				$href = sprintf($this->link_format, $this->max_pages);
+				$this->html .= "<li><a href=\"$href\">&raquo;</a></li>";
 			}
 
-			$this->html .= '</ul>';
+			$this->html .= '</ul></div>';
 
 			return $this->html;
 		}

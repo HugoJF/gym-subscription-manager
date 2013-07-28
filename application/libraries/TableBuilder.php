@@ -16,6 +16,8 @@
 
 		private $name;
 		private $description;
+		private $empty;
+		private $pagination;
 
 
 		public function set_name($name)
@@ -46,9 +48,42 @@
 		}
 
 
+		public function set_empty($empty)
+		{
+			$this->empty = $empty;
+
+			return $this;
+		}
+
+
+		public function is_empty()
+		{
+			return $this->empty;
+		}
+
+
+		public function add_pagination($pagination)
+		{
+			$this->pagination = $pagination;
+
+			return $this;
+		}
+
+
 		function __construct($class = '', $id = '')
 		{
 			parent::__construct('<table>', '</table>', $class, $id);
+		}
+
+
+		public function get_element_html()
+		{
+			if($this->is_empty())
+			{
+				return '<span style="width:auto;" class="label label-important">Nao ha mais usuarios nesta pagina</span>' . $this->pagination;
+			}
+
+			return parent::get_element_html() . $this->pagination;
 		}
 	}
 

@@ -11,10 +11,6 @@
 	{
 		function build_user_table_from_query($query, $group)
 		{
-			if($query->num_rows() == 0)
-			{
-				return FALSE;
-			}
 			$CI =& get_instance();
 
 			//Creates main table components
@@ -31,9 +27,33 @@
 
 			//Uri decomposition
 			$uri         = explode('/', uri_string());
+			$controller  = (isset($uri[0]) ? $uri[0] : '');
+			$method      = (isset($uri[1]) ? $uri[1] : '');
 			$group_order = (isset($uri[2]) ? $uri[2] : '');
 			$field       = (isset($uri[3]) ? $uri[3] : '');
 			$type        = (isset($uri[4]) ? $uri[4] : '');
+			$page        = (isset($uri[5]) ? $uri[5] : 1);
+
+
+			//Creates pagination
+			$CI->load->library('Paginator');
+			$pagination = new Pagination(5);
+			$pagination->set_link_format(base_url($controller . '/' . $method . '/' . $group->name . '/' . $field . '/' . $type . '/%d'));
+			if($group_order == $group->name)
+			{
+				$pagination->set_show_first(TRUE)->set_show_last(TRUE)->set_current_page($page);
+			}
+			else
+			{
+				$pagination->set_show_first(TRUE)->set_show_last(TRUE)->set_current_page(1);
+			}
+			$table->add_pagination($pagination->get_html());
+
+			//Sets table to empty and return it
+			if($query->num_rows() == 0)
+			{
+				return $table->set_empty(TRUE);
+			}
 
 			//Pre-determines what symbol will be used
 			$symbol = '';
@@ -49,12 +69,12 @@
 			if($field == 'user_id' && $group_order == $group->name)
 			{
 				$td = new TableData();
-				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/user_id/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>ID ' . $symbol . '</strong></a>'));
+				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/user_id/' . (($type == 'ASC') ? 'DESC' : 'ASC') . '/' . $page) . '"><strong>ID ' . $symbol . '</strong></a>'));
 			}
 			else
 			{
 				$td = new TableData();
-				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/user_id/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>ID</strong></a>'));
+				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/user_id/' . (($type == 'ASC') ? 'DESC' : 'ASC') . '/' . $page) . '"><strong>ID</strong></a>'));
 			}
 
 			//If sorting this field and sorting current group/table
@@ -62,12 +82,12 @@
 			if($field == 'name' && $group_order == $group->name)
 			{
 				$td = new TableData();
-				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/name/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>Nome ' . $symbol . '</strong></a>'));
+				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/name/' . (($type == 'ASC') ? 'DESC' : 'ASC') . '/' . $page) . '"><strong>Nome ' . $symbol . '</strong></a>'));
 			}
 			else
 			{
 				$td = new TableData();
-				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/name/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>Nome</strong></a>'));
+				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/name/' . (($type == 'ASC') ? 'DESC' : 'ASC') . '/' . $page) . '"><strong>Nome</strong></a>'));
 			}
 
 			//If sorting this field and sorting current group/table
@@ -75,12 +95,12 @@
 			if($field == 'payment_date' && $group_order == $group->name)
 			{
 				$td = new TableData();
-				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/payment_date/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>Data do ultimo pagamento ' . $symbol . '</strong></a>'));
+				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/payment_date/' . (($type == 'ASC') ? 'DESC' : 'ASC') . '/' . $page) . '"><strong>Data do ultimo pagamento ' . $symbol . '</strong></a>'));
 			}
 			else
 			{
 				$td = new TableData();
-				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/payment_date/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><strong>Data do ultimo pagamento</strong></a>'));
+				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/payment_date/' . (($type == 'ASC') ? 'DESC' : 'ASC') . '/' . $page) . '"><strong>Data do ultimo pagamento</strong></a>'));
 			}
 
 			//If sorting this field and sorting current group/table
@@ -88,12 +108,12 @@
 			if($field == 'payment_valid_until' && $group_order == $group->name)
 			{
 				$td = new TableData();
-				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/payment_valid_until/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><Strong>Valido ate ' . $symbol . '</strong></a>'));
+				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/payment_valid_until/' . (($type == 'ASC') ? 'DESC' : 'ASC') . '/' . $page) . '"><Strong>Valido ate ' . $symbol . '</strong></a>'));
 			}
 			else
 			{
 				$td = new TableData();
-				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/payment_valid_until/' . (($type == 'ASC') ? 'DESC' : 'ASC')) . '"><Strong>Valido ate</strong></a>'));
+				$row->add_child($td->add_child('<a href="' . base_url('dashboard/order/' . $group->name . '/payment_valid_until/' . (($type == 'ASC') ? 'DESC' : 'ASC') . '/' . $page) . '"><Strong>Valido ate</strong></a>'));
 			}
 
 			$td = new TableData();
