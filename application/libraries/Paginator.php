@@ -29,7 +29,7 @@
 		 * @param bool $show_last    - Show showrtcut to last page(requires max_pages set)
 		 * @param int  $current_page - The current page
 		 * @param null $max_pages    - Max number of pages
-		 * @param null $link_format  - The format of the page links - %s is replaced by the page number in the `href`
+		 * @param string $link_format  - The format of the page links - %s is replaced by the page number in the `href`
 		 */
 		public function __construct($link_number = 5, $show_first = TRUE, $show_last = TRUE, $current_page = 1, $max_pages = NULL, $link_format = '')
 		{
@@ -136,6 +136,11 @@
 		}
 
 
+		/**
+		 * @param $link_format
+		 *
+		 * @return $this
+		 */
 		public function set_link_format($link_format)
 		{
 			$this->link_format = $link_format;
