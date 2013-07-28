@@ -48,7 +48,7 @@
 			{
 				if(strtolower($group_name) == strtolower($group->name))
 				{
-					$query = $this->gsm_model->get_all_users_from_group($group->id, strtolower($field) . '/' . strtoupper($order_type), ($page - 1) * 30, 30);
+					$query = $this->gsm_model->get_all_users_from_group($group->id, strtolower($field) . '/' . strtoupper($order_type), ($page - 1) * 1, 1);
 					$table = build_user_table_from_query($query, $group);
 				}
 				else

@@ -27,11 +27,11 @@
 
 			//Uri decomposition
 			$uri         = explode('/', uri_string());
-			$controller  = (isset($uri[0]) ? $uri[0] : '');
-			$method      = (isset($uri[1]) ? $uri[1] : '');
-			$group_order = (isset($uri[2]) ? $uri[2] : '');
-			$field       = (isset($uri[3]) ? $uri[3] : '');
-			$type        = (isset($uri[4]) ? $uri[4] : '');
+			$controller  = (isset($uri[0]) ? $uri[0] : 'dashboard');
+			$method      = (isset($uri[1]) ? $uri[1] : 'order');
+			$group_order = (isset($uri[2]) ? $uri[2] : $group->name);
+			$field       = (isset($uri[3]) ? $uri[3] : 'id');
+			$type        = (isset($uri[4]) ? $uri[4] : 'ASC');
 			$page        = (isset($uri[5]) ? $uri[5] : 1);
 
 
