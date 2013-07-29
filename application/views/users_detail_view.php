@@ -57,9 +57,9 @@
 						</tr>
 					</thead>
 					<tbody>
+						<?php $valid = TRUE; ?>
 						<?php foreach($payments->result() as $payment): ?>
-							<?php $valid = ($payment->valid_until) > time() ? TRUE : FALSE ?>
-							<tr class="<?php echo ($valid) ? 'success' : 'error'; ?>">
+							<tr class="<?php echo ($valid) ? 'success' : 'error'; $valid = FALSE;?>">
 								<td><?php echo $payment->id; ?></td>
 								<td><?php echo date($this->config->item('gsm_payment_date_detail_format'), $payment->date); ?></td>
 								<td><?php echo date($this->config->item('gsm_payment_valid_until_detail_format'), $payment->valid_until); ?></td>
