@@ -40,8 +40,6 @@
 
 		public function order($group_name = '', $field = '', $order_type = '', $page = 1)
 		{
-			$this->output->enable_profiler(TRUE);
-
 			$tables = array();
 
 			foreach($this->ion_auth->groups()->result() as $group)
@@ -74,19 +72,13 @@
 
 		public function test()
 		{
-			$this->load->view('header_view');
-			$this->load->library('Paginator');
-			$paginator = new Pagination(10);
-			$paginator->set_current_page(10);
-			echo $paginator->get_html();
-			echo '<br><br><hr><br><br>';
-			echo date('d-m-Y', strtotime('Sunday'));
-			echo '<br>';
-			echo date('d-m-Y', strtotime('next Sunday'));
-			echo '<br>';
-			echo date('d-m-Y', strtotime('Saturday'));
-			echo '<br>';
-			echo date('d-m-Y', strtotime('next Saturday'));
-			$this->load->view('footer_view');
+			$this->load->library('DBConfig');
+			echo '<pre>';
+			$query = $this->dbconfig->get_item('date_format');
+			print_r($query->result());
+			$this->dbconfig->set_item('date_format', 'testing');
+			$query = $this->dbconfig->get_item('date_format');
+			print_r($query->result());
+			echo '</pre>';
 		}
 	}

@@ -228,7 +228,7 @@
 				<!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<li class="active">
+						<li>
 							<a href="<?php echo base_url(); ?>"><?php echo lang('header_home'); ?></a></li>
 						<li>
 							<a href="<?php echo base_url('users/add'); ?>"><?php echo lang('header_register_user'); ?></a>
@@ -236,11 +236,38 @@
 						<li>
 							<a href="<?php echo base_url('users/deactivated'); ?>"><?php echo lang('header_deactivated_users'); ?></a>
 						</li>
-						<!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Grupos<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Administradores</a></li>
+								<li><a href="#">Usuarios gerais</a></li>
+								<li><a href="#">Diarios</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Registrar</a></li>
+								<li><a href="#">Desativados</a></li>
+								<li><a href="#">Invalidos</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ferramentas do
+								admin<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Definir grupos</a></li>
+								<li><a href="#">Alterar opcoes</a></li>
+							</ul>
+						</li>
 					</ul>
-					<form method="POST" action="<?php echo base_url('users/detail') ?>" style="margin-top: 5px" class="navbar-form pull-right">
-						<input disabled type="text" name="user" data-provide="typeahead" data-items="5" data-source="" placeholder="<?php echo lang('user_name'); ?>" autocomplete="off">
-					</form>
+					<ul class="nav pull-right">
+						<li>
+							<form method="POST" action="<?php echo base_url('users/detail') ?>" style="margin-top: 5px" class="navbar-form">
+								<input disabled type="text" name="user" data-provide="typeahead" data-items="5" data-source="" placeholder="<?php echo lang('user_name'); ?>" autocomplete="off">
+							</form>
+						</li>
+					</ul>
 				</div>
 				<!--/.nav-collapse -->
 			</div>
