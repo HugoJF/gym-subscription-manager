@@ -176,7 +176,7 @@
 			for($i = $this->starting_page; $i <= $this->ending_page; $i ++)
 			{
 				$href = sprintf($this->link_format, $i);
-				$this->html .= "<li><a href=\"$href\">$i</a></li>";
+				$this->html .= "<li " . ($i == $this->current_page ? 'class="active"' : '') . "><a href=\"$href\">$i</a></li>";
 			}
 			if(isset($this->max_pages) && $this->ending_page == $this->max_pages)
 			{
