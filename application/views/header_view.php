@@ -19,6 +19,11 @@
 	body {
 		padding-bottom: 40px;
 		color: #5a5a5a;
+		background-color: #f5f5f5;
+	}
+
+	table {
+		background-color: white;
 	}
 
 		/* CUSTOMIZE THE NAVBAR
@@ -230,18 +235,16 @@
 					<ul class="nav">
 						<li>
 							<a href="<?php echo base_url(); ?>"><?php echo lang('header_home'); ?></a></li>
-						<li>
-							<a href="<?php echo base_url('users/add'); ?>"><?php echo lang('header_register_user'); ?></a>
-						</li>
-						<li>
-							<a href="<?php echo base_url('users/deactivated'); ?>"><?php echo lang('header_deactivated_users'); ?></a>
-						</li>
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Grupos<b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Administradores</a></li>
-								<li><a href="#">Usuarios gerais</a></li>
-								<li><a href="#">Diarios</a></li>
+								<?php foreach($this->ion_auth->groups()->result() as $group): ?>
+
+									<li>
+										<a href="<?php echo base_url('dashboard/group/' . $group->name); ?>"><?php echo $group->description; ?></a>
+									</li>
+
+								<?php endforeach; ?>
 							</ul>
 						</li>
 						<li class="dropdown">
@@ -264,7 +267,7 @@
 					<ul class="nav pull-right">
 						<li>
 							<form method="POST" action="<?php echo base_url('users/detail') ?>" style="margin-top: 5px" class="navbar-form">
-								<input disabled type="text" name="user" data-provide="typeahead" data-items="5" data-source="" placeholder="<?php echo lang('user_name'); ?>" autocomplete="off">
+								<input id="user_search" type="text" name="user" data-provide="typeahead" placeholder="<?php echo lang('user_name'); ?>" autocomplete="off">
 							</form>
 						</li>
 					</ul>

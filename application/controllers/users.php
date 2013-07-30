@@ -23,7 +23,7 @@
 				{
 					redirect('dashboard');
 				}
-				$user_id = $query->first_row()->id;
+				$user_id = $query->row()->id;
 			}
 			$user     = $this->gsm_model->get_user($user_id, TRUE)->first_row();
 			$payments = $this->gsm_model->get_payments($user_id);

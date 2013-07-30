@@ -70,6 +70,25 @@
 		}
 
 
+		public function group($group_name)
+		{
+			foreach($this->ion_auth->groups()->result() as $group)
+			{
+				if(strtolower($group->name) == strtolower($group_name))
+				{
+					$query = $this->gsm_model->get_all_users_from_group($group->id);
+					$table = build_user_table_from_query($query, $group);
+					$table->set_name($group->name);
+					$table->set_description($group->description);
+					break;
+				}
+			}
+			$this->load->view('header_view');
+			$this->load->view('dashboard_view', array('tables' => array($table)));
+			$this->load->view('footer_view');
+		}
+
+
 		public function test()
 		{
 			$this->load->library('DBConfig');
@@ -80,5 +99,7 @@
 			$query = $this->dbconfig->get_item('date_format');
 			print_r($query->result());
 			echo '</pre>';
+
+			echo $this->gsm_model->get_id_from_name('Ana Banana');
 		}
 	}

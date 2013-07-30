@@ -200,4 +200,13 @@
 
 			return $query;
 		}
+
+
+		public function get_id_from_name($name)
+		{
+			$query = $this->db->query("SELECT users.id FROM users WHERE concat(users.first_name, ' ', users.last_name) = '$name'");
+
+			return $query;
+
+		}
 	}
