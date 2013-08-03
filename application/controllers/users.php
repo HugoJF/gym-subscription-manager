@@ -113,6 +113,10 @@
 			}
 		}
 
+		public function register()
+		{
+			$this->add();
+		}
 
 		public function deactivate($user_id)
 		{

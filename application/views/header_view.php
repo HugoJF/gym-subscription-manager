@@ -211,9 +211,10 @@
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
 <link rel="shortcut icon" href="../assets/ico/favicon.png">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 
-<body style="padding-left:5px;padding-right: 5px">
+<body style="padding-left:5px;padding-right: 5px;font-family: 'Open Sans', sans-serif;">
 
 
 <!-- NAVBAR
@@ -250,17 +251,17 @@
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios<b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Registrar</a></li>
-								<li><a href="#">Desativados</a></li>
-								<li><a href="#">Invalidos</a></li>
+								<li><a href="<?php echo base_url('users/register'); ?>">Registrar</a></li>
+								<li><a href="<?php echo base_url('users/deactivated'); ?>">Desativados</a></li>
+								<li><a href="<?php echo base_url('users/invalid'); ?>">Invalidos</a></li>
 							</ul>
 						</li>
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ferramentas do
 								admin<b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Definir grupos</a></li>
-								<li><a href="#">Alterar opcoes</a></li>
+								<li><a href="<?php echo base_url('options/groups'); ?>">Definir grupos</a></li>
+								<li><a href="<?php echo base_url('options'); ?>">Alterar opcoes</a></li>
 							</ul>
 						</li>
 					</ul>

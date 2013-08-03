@@ -1,10 +1,10 @@
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /gym-subscription-manager/
+RewriteBase /Projects/gym-subscription-manager/
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /gym-subscription-manager/index.php [L]
+RewriteRule . /Projects/gym-subscription-manager/index.php [L]
 </IfModule>
 # END WordPress

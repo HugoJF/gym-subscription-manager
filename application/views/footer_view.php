@@ -1,6 +1,6 @@
 <!-- FOOTER -->
 <footer>
-	<p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+	<p>&copy; 2013, Inc. &middot; Powered by <a href>CodeIgniter</a> & <a href>Twitter Boostrap</a></p>
 </footer>
 
 </div>
@@ -25,6 +25,11 @@
 					function (data) {
 						return process(data);
 					});
+			},
+			updater: function(item) {
+				this.$element[0].value = item;
+				this.$element[0].form.submit();
+				return item;
 			}
 
 		});

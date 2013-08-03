@@ -9,6 +9,7 @@
 	 */
 	//period_sum -> Only adds the period to current date
 	//maintain_day -> Only works for months periods, maintain the same expiration date(the subscription may have more/less than exact 30 days to preserve expiration day)
+	$config['gsm_payment_options'][] = array('name' => '2 minutos', 'value' => 2 * 60, 'type' => 'period_sum');
 	$config['gsm_payment_options'][] = array('name' => '7 dias', 'value' => 60 * 60 * 24 * 7, 'type' => 'period_sum');
 	$config['gsm_payment_options'][] = array('name' => '14 dias', 'value' => 60 * 60 * 24 * 14, 'type' => 'period_sum');
 	$config['gsm_payment_options'][] = array('name' => '1 mes', 'value' => 1, 'type' => 'maintain_day');
